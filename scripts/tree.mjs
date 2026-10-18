@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 export function makeTree(root) {
   const lines=[path.basename(root)+'/'];
   function walk(dir,prefix) {
-    const entries=fs.readdirSync(dir,{withFileTypes:true}).filter(d=>!['.git','node_modules','.validation-tmp','.engineering-kit'].includes(d.name)&&!d.name.endsWith('.tgz')).sort((a,b)=>a.name.localeCompare(b.name,'en'));
+    const entries=fs.readdirSync(dir,{withFileTypes:true}).filter(d=>!['.git','node_modules','.validation-tmp','.engineering-kit','.agents'].includes(d.name)&&!d.name.endsWith('.tgz')).sort((a,b)=>a.name.localeCompare(b.name,'en'));
     entries.forEach((d,i)=>{const last=i===entries.length-1;lines.push(prefix+(last?'└── ':'├── ')+d.name+(d.isDirectory()?'/':''));if(d.isDirectory())walk(path.join(dir,d.name),prefix+(last?'    ':'│   '));});
   }
   walk(root,'');return lines.join('\n')+'\n';

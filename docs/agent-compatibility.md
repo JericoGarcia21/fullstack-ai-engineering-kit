@@ -37,3 +37,13 @@ This repository includes AGENTS.md, CLAUDE.md, and a Cursor MDC rule for work on
 - Buff, Free Buff, and other unverified hosts: use [portable master instructions](portable-master-instructions.md); do not invent configuration paths.
 
 After installation, ask the host to list/load project-discovery and identify its loaded file. Run [manual scenarios](../examples/agent-evaluation.md). Record actual outcomes before claiming tested compatibility.
+
+## Codex links and repair
+
+Reviewed 2026-10-18 against [official skill documentation](https://learn.chatgpt.com/docs/build-skills). Codex supports linked skill folders. The workspace CLI uses directory symlinks (Windows junctions) from .agents/skills/<name> to .engineering-kit/skills/<name>. Complete supporting files stay in the bundle; edits there are immediately visible through the links. Keep the bundle in place. Windows junctions use absolute targets; recreate them if the workspace moves.
+
+Run the CLI's init --agent codex command again to repair an existing valid bundle when discovery skill folders are absent. The bundle is validated and preserved, and project instructions are appended without replacing local rules. Existing discovery folders still cause a conflict before writes; review those manually. Repair uses the preserved bundle, not newer package skills, and does not upgrade it. Existing complete toolkit instruction blocks are preserved.
+
+The lower-level skills-only installer still makes exclusive complete copies; updates require reviewing and replacing those copies explicitly. For this source repository, use its exported install function with link:true to link canonical skills/ without creating a bundle. Do not commit installed links or duplicate copies.
+
+Codex normally detects new skills automatically. If autocomplete does not refresh, restart Codex and reopen the project. Confirm the actual loaded path in the client; filesystem checks alone cannot prove UI discovery.

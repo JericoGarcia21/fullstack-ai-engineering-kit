@@ -33,8 +33,13 @@ export function initializeWorkspace({agent,target=process.cwd(),dryRun=false,sou
   if(result.errors.length)throw Error('Toolkit source validation failed: '+result.errors.join('; '));
   for(const entry of bundleEntries)if(!fs.existsSync(path.join(source,entry)))throw Error(`Missing package resource: ${entry}`);
   const bundle=safeDestination(root,'.engineering-kit');
-  if(exists(bundle))throw Error('Destination .engineering-kit already exists; no files changed. Use a fresh workspace or review/remove the previous installation manually.');
-  const plan=agent==='portable'?[]:install({agent,target:root,source});
+  const repairing=exists(bundle);
+  if(repairing) {
+    if(agent!=='codex')throw Error('Destination .engineering-kit already exists; no files changed.');
+    const existing=validate(bundle,{checkTree:false});
+    if(existing.errors.length)throw Error('Existing bundle validation failed: '+existing.errors.join('; '));
+  }
+  const plan=agent==='portable'?[]:install({agent,target:root,source:repairing?bundle:source});
   const rule=agent==='cursor'?'.cursor/rules/fullstack-ai-engineering-kit.mdc':agent==='claude'?'CLAUDE.md':agent==='portable'?null:'AGENTS.md';
   let entryPath=null;let previous='';
   if(rule) {
@@ -43,7 +48,7 @@ export function initializeWorkspace({agent,target=process.cwd(),dryRun=false,sou
       if(!fs.statSync(entryPath).isFile())throw Error(`Instruction destination is not a file: ${rule}`);
       if(agent==='cursor')throw Error(`Instruction rule already exists: ${rule}`);
       previous=fs.readFileSync(entryPath,'utf8');
-      if(previous.includes(begin)||previous.includes(end))throw Error(`Existing toolkit instruction block in ${rule}; no files changed.`);
+      if((previous.includes(begin)||previous.includes(end))&&!(repairing&&previous.includes(begin)&&previous.includes(end)))throw Error(`Existing toolkit instruction block in ${rule}; no files changed.`);
     }
     // Preflight intermediate directories before creating any bundle or skills.
     const parent=path.dirname(entryPath);
@@ -54,10 +59,12 @@ export function initializeWorkspace({agent,target=process.cwd(),dryRun=false,sou
   if(dryRun)return {agent,target:root,paths};
   // Conflicts are preflighted above. Unexpected IO failures can leave partial
   // files; do not automatically delete or overwrite a user's project on failure.
+  if(!repairing) {
   fs.mkdirSync(bundle);
   for(const entry of bundleEntries)fs.cpSync(path.join(source,entry),path.join(bundle,entry),{recursive:true,force:false,errorOnExist:true});
-  if(agent!=='portable')install({agent,target:root,source,write:true});
-  if(entryPath) {
+  }
+  if(agent!=='portable')install({agent,target:root,source:bundle,write:true,link:agent==='codex'});
+  if(entryPath&&!(repairing&&previous.includes(begin)&&previous.includes(end))) {
     fs.mkdirSync(path.dirname(entryPath),{recursive:true});
     const addition=instruction(agent);
     if(previous)fs.appendFileSync(entryPath,`${previous.endsWith('\n')?'':'\n'}\n${addition}`);

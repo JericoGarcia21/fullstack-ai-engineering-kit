@@ -52,3 +52,18 @@ test('CLI defaults target to caller directory, accepts spaces, and rejects mista
   assert.equal(run('init','--agent','codex','--dry-run').status,0);assert.deepEqual(fs.readdirSync(project),[]);
   const result=run('init','--agent','codex');assert.equal(result.status,0,result.stderr);assert.ok(fs.existsSync(path.join(project,'AGENTS.md')));
 }));
+
+test('Codex repairs a preserved portable bundle using complete linked skill folders',()=>temporary(root=>{
+  initializeWorkspace({agent:'portable',target:root});
+  const original='# Project rules\nKeep existing behavior.\n';
+  fs.writeFileSync(path.join(root,'AGENTS.md'),original);
+  const manifest=path.join(root,'.engineering-kit','skills','frontend-design','SKILL.md');
+  const before=fs.readFileSync(manifest,'utf8');
+  initializeWorkspace({agent:'codex',target:root});
+  const linked=path.join(root,'.agents','skills','frontend-design');
+  assert.ok(fs.lstatSync(linked).isSymbolicLink());
+  assert.equal(fs.realpathSync(linked),fs.realpathSync(path.dirname(manifest)));
+  assert.equal(fs.readFileSync(path.join(linked,'SKILL.md'),'utf8'),before);
+  assert.ok(fs.readFileSync(path.join(root,'AGENTS.md'),'utf8').startsWith(original));
+  for(const file of filesIn(path.join(root,'.engineering-kit','skills')).filter(f=>f.endsWith('.md')))assert.deepEqual(localLinkErrors(file,path.join(root,'.engineering-kit')),[],file);
+}));

@@ -5,7 +5,7 @@ Reviewed official public pages on 2026-10-18. Pages were accessible in this sess
 | Primary source | How it informs this toolkit / verification limit |
 | --- | --- |
 | [Agent Skills specification](https://agentskills.io/specification) | SKILL.md frontmatter, names and progressive disclosure; schema subset validated locally |
-| [OpenAI Codex skills](https://developers.openai.com/codex/skills/) | Local skill paths and explicit invocation; retrieved via official documentation tool |
+| [OpenAI Codex skills](https://developers.openai.com/codex/skills/) | Local skill paths, linked folders, explicit invocation and automatic discovery/restart fallback; reviewed 2026-10-18 at https://learn.chatgpt.com/docs/build-skills |
 | [Codex AGENTS.md](https://developers.openai.com/codex/guides/agents-md/) | Repository instruction entry point |
 | [Claude Code skills](https://code.claude.com/docs/en/skills) | Project/personal paths and skill commands |
 | [Claude Code memory](https://code.claude.com/docs/en/memory) | CLAUDE.md project instructions |

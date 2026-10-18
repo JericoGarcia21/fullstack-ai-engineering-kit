@@ -16,7 +16,8 @@ Options:
 
 Works in existing directories for any stack; no project package.json is needed.
 init writes files unless --dry-run is supplied. Existing skills and kit bundles
-are never overwritten. Existing agent instructions are preserved and extended.
+are never overwritten. Codex can repair a bundle missing its discovery folders.
+Existing agent instructions are preserved and extended.
 portable provides files for manual use without claiming native agent support.
 `;
 try {
@@ -40,6 +41,7 @@ try {
     if(options.dryRun)console.log('No files changed. Remove --dry-run to install.');
     else {
       console.log('Templates, checklists, and all skills: .engineering-kit/');
+      if(result.agent==='codex')console.log('Discovery: .agents/skills/ (linked to .engineering-kit/skills/).');
       console.log(result.agent==='portable'?'Provide .engineering-kit/docs/portable-master-instructions.md to your agent. Native discovery is unverified.':'Reload your coding agent and verify that project-discovery is available.');
       console.log('Start: Follow .engineering-kit/templates/project-initialization.md to plan my project before implementation.');
     }
