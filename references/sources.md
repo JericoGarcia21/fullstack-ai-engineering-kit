@@ -23,6 +23,9 @@ Reviewed official public pages on 2026-10-18. Pages were accessible in this sess
 | [shadcn/ui](https://ui.shadcn.com/) | Component/design-system reference, not a mandated dependency |
 | [Playwright](https://playwright.dev/) | Browser workflow testing reference; not installed or executed for this instruction-only repository |
 | [GitHub Actions](https://docs.github.com/en/actions) | Repository validation workflow; remote CI not run in this session |
+| [npm package.json](https://docs.npmjs.com/cli/v11/configuring-npm/package-json/) | Package bin, file inclusion and metadata for the workspace CLI |
+| [npm exec](https://docs.npmjs.com/cli/v11/commands/npm-exec/) | Explicit package execution and CLI argument handling |
+| [npm package specifications](https://docs.npmjs.com/cli/v11/using-npm/package-spec/) | Direct GitHub installation without npm registry publication |
 | [Twelve-Factor App](https://12factor.net/) | Configuration and operational separation as context-dependent design principles |
 
 Buff and Free Buff: no authoritative native skill mechanism verified. They receive a portable manual fallback only. Other unknown hosts receive the same fallback. References remain subject to their respective owners' terms and licenses; the toolkit MIT license does not relicense external resources.

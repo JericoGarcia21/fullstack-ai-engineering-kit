@@ -7,7 +7,7 @@ export function install({agent,target,write=false,source=fileURLToPath(new URL('
   if(!Object.hasOwn(destinations,agent))throw Error('agent must be codex, claude, cursor, or opencode');
   if(!target||!path.isAbsolute(target))throw Error('target must be an explicit absolute project directory');
   if(!fs.existsSync(target)||!fs.statSync(target).isDirectory())throw Error('target must be an existing project directory');
-  const result=validate(source);if(result.errors.length)throw Error('source validation failed: '+result.errors.join('; '));
+  const result=validate(source,{checkTree:false});if(result.errors.length)throw Error('source validation failed: '+result.errors.join('; '));
   const actualTarget=fs.realpathSync(target);
   const base=path.join(actualTarget,destinations[agent]);
   // Refuse symlink/reparse destinations so a local install cannot silently leave the target.

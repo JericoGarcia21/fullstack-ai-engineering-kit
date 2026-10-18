@@ -6,7 +6,7 @@ import {makeTree} from './tree.mjs';
 export const requiredSkills = ['project-discovery','requirements-engineering','system-architecture','frontend-design','frontend-engineering','backend-api-engineering','database-engineering','fullstack-development','security-engineering','code-audit','qa-testing','debugging','accessibility-review','performance-optimization','devops-deployment','documentation','release-readiness'];
 export const requiredDocs = ['README.md','LICENSE','CONTRIBUTING.md','AGENTS.md','CLAUDE.md','.cursor/rules/engineering-kit.mdc','.github/workflows/validate.yml','references/workflow.md','references/sources.md','references/deployment-targets.md','docs/agent-compatibility.md','docs/portable-master-instructions.md','docs/skill-catalog.md','docs/license.md','docs/validation.md','docs/validation-results.md','docs/repository-tree.txt','examples/agent-evaluation.md','examples/club-booking/README.md','examples/club-booking/requirements.md','examples/club-booking/architecture.md','examples/club-booking/database-design.md','examples/club-booking/api-contract.md','examples/club-booking/implementation-plan.md','examples/club-booking/readiness.md','checklists/security.md','checklists/frontend-ux.md','checklists/release-readiness.md',...['project-initialization','project-brief','requirements','acceptance-criteria','architecture','database-design','api-contract','implementation-plan','design-brief','threat-model','qa-test-plan','code-audit-report','debugging-report','accessibility-report','performance-report','deployment-checklist','release-readiness','documentation-plan'].map(n=>`templates/${n}.md`)];
 export function filesIn(root) {
-  return fs.readdirSync(root,{withFileTypes:true}).filter(d=>!['.git','node_modules','.validation-tmp'].includes(d.name)).flatMap(d=>d.isDirectory()?filesIn(path.join(root,d.name)):[path.join(root,d.name)]);
+  return fs.readdirSync(root,{withFileTypes:true}).filter(d=>!['.git','node_modules','.validation-tmp','.engineering-kit'].includes(d.name)).flatMap(d=>d.isDirectory()?filesIn(path.join(root,d.name)):[path.join(root,d.name)]);
 }
 export function metadata(text) {
   const errors=[]; const values={};
@@ -84,6 +84,7 @@ export function validate(root,{checkTree=true}={}) {
   const errors=[];let skillCount=0;let markdownCount=0;
   if(!fs.existsSync(root)||!fs.statSync(root).isDirectory()) return {errors:['root is not a directory'],skillCount,markdownCount};
   for(const file of requiredDocs) if(!fs.existsSync(path.join(root,file)))errors.push(`missing required document ${file}`);
+  for(const file of ['package.json','bin/cli.mjs','scripts/workspace.mjs','docs/package-installation.md'])if(!fs.existsSync(path.join(root,file)))errors.push(`missing package resource ${file}`);
   for(const name of requiredSkills) if(!fs.existsSync(path.join(root,'skills',name,'SKILL.md')))errors.push(`missing skill ${name}`);
   for(const file of filesIn(root)) {
     const rel=path.relative(root,file);

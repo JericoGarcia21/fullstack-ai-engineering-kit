@@ -2,11 +2,14 @@ fullstack-ai-engineering-kit/
 ├── .cursor/
 │   └── rules/
 │       └── engineering-kit.mdc
+├── .gitattributes
 ├── .github/
 │   └── workflows/
 │       └── validate.yml
 ├── .gitignore
 ├── AGENTS.md
+├── bin/
+│   └── cli.mjs
 ├── checklists/
 │   ├── frontend-ux.md
 │   ├── release-readiness.md
@@ -16,6 +19,7 @@ fullstack-ai-engineering-kit/
 ├── docs/
 │   ├── agent-compatibility.md
 │   ├── license.md
+│   ├── package-installation.md
 │   ├── portable-master-instructions.md
 │   ├── repository-tree.txt
 │   ├── skill-catalog.md
@@ -32,6 +36,7 @@ fullstack-ai-engineering-kit/
 │       ├── README.md
 │       └── requirements.md
 ├── LICENSE
+├── package.json
 ├── README.md
 ├── references/
 │   ├── deployment-targets.md
@@ -40,9 +45,12 @@ fullstack-ai-engineering-kit/
 ├── scripts/
 │   ├── install.mjs
 │   ├── install.test.mjs
+│   ├── package-smoke.mjs
 │   ├── tree.mjs
 │   ├── validate.mjs
-│   └── validate.test.mjs
+│   ├── validate.test.mjs
+│   ├── workspace.mjs
+│   └── workspace.test.mjs
 ├── skills/
 │   ├── accessibility-review/
 │   │   ├── references/

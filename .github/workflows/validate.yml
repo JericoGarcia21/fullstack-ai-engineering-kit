@@ -17,7 +17,8 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/validate.mjs
-      - run: node --test scripts/validate.test.mjs scripts/install.test.mjs
+      - run: npm test
+      - run: npm run test:package
 
 # Major action tags are maintained upstream. Projects requiring immutable pins
 # should replace them with reviewed full commit SHAs and automate updates.

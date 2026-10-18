@@ -11,7 +11,15 @@ A reusable engineering toolkit for AI coding agents: discover and plan before co
 
 ## Install and validate
 
-Requires Node.js 22+; no npm packages are required. From this directory:
+Requires Node.js 22+. Run from your project folder after these package changes are pushed to GitHub:
+
+```sh
+npx --yes --package=github:JericoGarcia21/fullstack-ai-engineering-kit fullstack-ai-engineering-kit init --agent codex
+```
+
+Replace codex with claude, cursor, opencode, or portable. Add `--dry-run` to preview. No application package.json is needed. The CLI installs skills and a full reference bundle into your project, and preserves existing agent instructions while adding workflow guidance. Native discovery still depends on the agent and its version. See [package installation](docs/package-installation.md) for global installation, local use, Windows commands, and npm publishing steps. The package has not been published to the npm registry.
+
+From a local toolkit checkout, validate or use the original skills-only installer:
 
 ```sh
 node scripts/validate.mjs
@@ -20,7 +28,7 @@ node scripts/install.mjs --agent codex --target /path/to/project
 node scripts/install.mjs --agent codex --target /path/to/project --write
 ```
 
-Installation previews by default and refuses existing skill folders. Use claude, cursor, or opencode for the other native paths. Merge project workflow instructions manually. Buff, Free Buff and unverified agents receive the portable fallback; no native support is claimed.
+The original scripts/install.mjs previews by default and copies skills only; merge workflow instructions manually when using that script. The package CLI's init command writes by default and includes workflow setup. Both refuse existing skill folders. Buff, Free Buff and unverified agents receive the portable fallback; no native support is claimed.
 
 ## Sample invocation
 

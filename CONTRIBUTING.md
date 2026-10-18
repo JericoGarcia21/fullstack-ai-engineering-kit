@@ -6,8 +6,8 @@ Run:
 
 ```sh
 node scripts/validate.mjs
-node --test scripts/validate.test.mjs
-node --test scripts/install.test.mjs
+npm test
+npm run test:package
 ```
 
 For integration changes, review official documentation, update [sources](references/sources.md) and [compatibility](docs/agent-compatibility.md), and distinguish documentation verification from runtime testing. Add a regression fixture for validator or installer behavior changes. Never commit credentials or copied proprietary content. Do not submit fabricated agent evaluations or product security claims.

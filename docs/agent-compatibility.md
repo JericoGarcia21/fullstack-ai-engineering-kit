@@ -4,6 +4,8 @@ Official conventions reviewed 2026-10-18; [sources and review limits](../referen
 
 ## Project installation
 
+For the easiest workspace setup, use the [npm-compatible CLI](package-installation.md). It copies the reference toolkit and installs the appropriate workflow entry point. The lower-level command below remains available for skills-only installation.
+
 From the toolkit directory, preview installation into an existing project with Node.js 22 or newer:
 
 ```sh

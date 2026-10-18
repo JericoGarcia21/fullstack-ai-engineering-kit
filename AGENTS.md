@@ -6,6 +6,6 @@ For significant implementation, present requirements, architecture, security/QA 
 
 Choose only the relevant skills from [the catalog](docs/skill-catalog.md). Read their SKILL.md and only needed supporting references. Build vertical features and keep UI, server authorization, data, tests, and documentation synchronized. Never hardcode secrets or fabricate evidence.
 
-Run `node scripts/validate.mjs` and `node --test scripts/validate.test.mjs` after toolkit changes. These checks validate packaging, not product security or behavior. Before release, use [release gates](checklists/release-readiness.md). Do not deploy or change live infrastructure without user authorization.
+Run `node scripts/validate.mjs` and `npm test` after toolkit changes. For package or installer changes also run `npm run test:package`. These checks validate packaging, not product security or behavior. Before release, use [release gates](checklists/release-readiness.md). Do not deploy or change live infrastructure without user authorization.
 
 When editing this toolkit, keep canonical skills in skills/. Do not commit installed duplicate copies. Verify integration claims against official documentation and update the source review date.

@@ -10,3 +10,5 @@ node_modules/
 Thumbs.db
 coverage/
 .validation-tmp/
+.engineering-kit/
+*.tgz
