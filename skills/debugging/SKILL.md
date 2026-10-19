@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Add a regression check that fails for the original defect when useful, and test adjacent boundary or recovery cases. Remove temporary instrumentation and avoid secret-bearing logs.
 5. Deliver cause, fix, executed verification, remaining uncertainty, and follow-up. Stop repeated destructive or externally mutating retries when scope or safety is unclear.
 
+## Decisions and verification
+
+First separate user impact and urgent mitigation from root-cause diagnosis. Preserve evidence and work within authorized environments; a plausible explanation is not yet a verified cause.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: Evidence explains why the defect occurs and why the change addresses it. The original reproduction and relevant recovery cases are verified or explicitly unavailable. Remaining uncertainty and any temporary mitigation have clear follow-up.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/debugging-report.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

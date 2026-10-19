@@ -47,7 +47,7 @@ test('directory junction destination cannot redirect writes outside workspace',(
 test('CLI defaults target to caller directory, accepts spaces, and rejects mistakes',()=>temporary(root=>{
   const project=path.join(root,'a project');fs.mkdirSync(project);
   const run=(...args)=>spawnSync(process.execPath,[cli,...args],{cwd:project,encoding:'utf8'});
-  assert.equal(run('--help').status,0);assert.equal(run('--version').stdout.trim(),'0.1.0');
+  assert.equal(run('--help').status,0);assert.equal(run('--version').stdout.trim(),'0.2.0');
   assert.equal(run('init').status,1);assert.equal(run('init','--agent','buff').status,1);assert.equal(run('init','--agent','codex','--unknown').status,1);
   assert.equal(run('init','--agent','codex','--dry-run').status,0);assert.deepEqual(fs.readdirSync(project),[]);
   const result=run('init','--agent','codex');assert.equal(result.status,0,result.stderr);assert.ok(fs.existsSync(path.join(project,'AGENTS.md')));

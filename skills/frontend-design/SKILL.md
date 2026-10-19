@@ -20,8 +20,16 @@ Use for the task described above. Read relevant project instructions, existing a
 5. Deliver a design brief or reviewable mockup with rationale and state coverage. Validate using realistic content, narrow viewports, keyboard navigation, and contrast; label unverified checks.
    Compare rendered screens with the brief and reference observations. Correct generic composition, weak hierarchy, and inconsistent details before handoff; do not claim visual verification from source code alone.
 
+## Decisions and verification
+
+Read visual-direction.md for substantial visual work. Use established interaction patterns as usability references while establishing a product-specific hierarchy, density, and visual identity.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: The primary action and information hierarchy remain clear with realistic long content. Form errors explain the correction and preserve useful work. Responsive, focus, contrast, and state checks identify what was visually inspected.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/design-brief.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

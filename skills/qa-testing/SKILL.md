@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Use the existing runner (for example Playwright, Vitest, Jest, PHPUnit). Prefer stable accessible locators and controlled setup; avoid arbitrary sleeps and tests that merely mirror implementation.
 5. Record command, environment, revision, actual result, artifacts, unresolved failures, and coverage gaps. Mark unavailable checks NOT VERIFIED and never create fictional screenshots or CI success.
 
+## Decisions and verification
+
+Choose tests by failure risk and observable behavior. Use the existing runner; Playwright guidance applies to browser testing and does not mandate Playwright for every project.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: Critical acceptance criteria and permission boundaries have meaningful coverage. Tests fail for the intended defect and avoid depending on arbitrary timing or execution order. The report records command, environment, actual outcome, artifacts, and unchecked risks.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/qa-test-plan.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

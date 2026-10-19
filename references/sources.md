@@ -31,3 +31,19 @@ Reviewed official public pages on 2026-10-18. Pages were accessible in this sess
 Buff and Free Buff: no authoritative native skill mechanism verified. They receive a portable manual fallback only. Other unknown hosts receive the same fallback. References remain subject to their respective owners' terms and licenses; the toolkit MIT license does not relicense external resources.
 
 The public overview pages establish reference areas, not a complete standard-by-standard implementation. For product audits, consult and cite exact controls and versions at execution time.
+
+## Engineering skill expansion
+
+The [skill reference map](skill-sources.md) records the engineering and AI sources reviewed on 2026-10-19. This supplements the earlier integration review; it does not imply a newer host compatibility test.
+
+## App tutorial video sources
+
+Official Remotion agent-skill, animation, sequence, render/CLI, caption, and license documentation, Playwright video documentation, and W3C accessible-media guidance were reviewed on 2026-10-19. See the [video decision guide](../skills/app-video-tutorials/references/guide.md) and [reference map](skill-sources.md). No Remotion runtime, browser recording, speech generation, media rendering, or playback integration was executed. Optional upstream skills are linked, not bundled or installed.
+
+## Installation updates
+
+Reviewed [GitHub Releases API](https://docs.github.com/en/rest/releases/releases#get-the-latest-release) and [npm package specifications](https://docs.npmjs.com/cli/v11/using-npm/package-spec/) on 2026-10-19 for explicit release lookup and selecting reviewed package refs. Update checks use published releases, not arbitrary pushes. Network responses are tested with fixtures; no live release lookup, remote installation, publication, or notification delivery is claimed. See [updates](../docs/updating.md).
+
+## npm registry publication
+
+Reviewed official [npm publishing guidance](https://docs.npmjs.com/creating-and-publishing-unscoped-public-packages/), [npm publish](https://docs.npmjs.com/cli/v11/commands/npm-publish/), and [npm login](https://docs.npmjs.com/cli/v11/commands/npm-login/) on 2026-10-19 for explicit public-registry publication, package-content review, browser authentication, and account verification. Publication and registry-installation results are recorded separately in validation results; documentation review alone does not establish publication.

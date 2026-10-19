@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Use automated checks to supplement manual review. Record actual browser and assistive technology combinations; do not infer screen-reader success from a static scan.
 5. Report criterion, affected element, user impact, reproduction, severity, and retest evidence. Separate automated results, manual results, and not-verified criteria.
 
+## Decisions and verification
+
+Agree on the WCAG version/level and review scope. Combine automated checks with manual keyboard, zoom/reflow, and assistive-technology checks; report the combinations actually exercised.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: Findings link an observed barrier to a specific applicable criterion. The critical journey works with keyboard alone in the tested environment. Automated, manual, and unverified results remain distinct; partial scope is not whole-site conformance.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/accessibility-report.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

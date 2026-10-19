@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Repeat the same workload and report samples, units, variability, and changes in environment. Verify correctness and authorization after optimization.
 5. Deliver before/after evidence and unresolved bottlenecks. If measurement cannot run, label the change a hypothesis and give the command or experiment needed.
 
+## Decisions and verification
+
+Define the symptom and a reproducible workload before changing code. The USE method supports resource diagnosis; use browser, application, or database profilers for the relevant critical path.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: Before/after results use comparable conditions and named metrics. The claimed improvement is measured, with uncertainty and trade-offs recorded. Correctness and access control survive the optimization.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/performance-report.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

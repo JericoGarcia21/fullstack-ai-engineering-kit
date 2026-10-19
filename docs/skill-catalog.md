@@ -21,3 +21,7 @@ Native installation is described in [agent compatibility](agent-compatibility.md
 | [devops-deployment](../skills/devops-deployment/SKILL.md) | Prepare stack-appropriate deployment, CI, configuration, migrations, backups, rollback, and observability; use for release operations. |
 | [documentation](../skills/documentation/SKILL.md) | Write or update practical software documentation grounded in actual behavior, setup, architecture, and operating evidence. |
 | [release-readiness](../skills/release-readiness/SKILL.md) | Assess a candidate release using acceptance, security, QA, accessibility, operational, and rollback evidence before deployment. |
+| [ai-engineering](../skills/ai-engineering/SKILL.md) | Design, implement, evaluate, or operate AI features using model APIs, document retrieval, tool-using agents, or trained models. |
+| [app-video-tutorials](../skills/app-video-tutorials/SKILL.md) | Create animated app tutorials, onboarding videos, and walkthroughs using real capture, scripted scenes, captions, narration, and export; prefer Remotion for programmable animation. |
+
+Each skill includes a local decision guide with primary references and task-specific verification. See the [source map](../references/skill-sources.md). For AI tasks, load only the relevant retrieval, agent, evaluation, or training reference.

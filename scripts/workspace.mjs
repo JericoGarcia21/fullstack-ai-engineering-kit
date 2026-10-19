@@ -3,9 +3,9 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {install,destinations} from './install.mjs';
 import {validate} from './validate.mjs';
+import {bundleEntries,inventory,desiredState,manifestPath,readManifest} from './state.mjs';
 
 const sourceRoot=fileURLToPath(new URL('..',import.meta.url));
-const bundleEntries=['README.md','LICENSE','AGENTS.md','CLAUDE.md','CONTRIBUTING.md','package.json','bin','scripts','skills','templates','checklists','references','examples','docs','.github','.cursor'];
 const begin='<!-- fullstack-ai-engineering-kit:begin -->';
 const end='<!-- fullstack-ai-engineering-kit:end -->';
 function exists(file) {try{fs.lstatSync(file);return true;}catch(e){if(e.code==='ENOENT')return false;throw e;}}
@@ -40,6 +40,20 @@ export function initializeWorkspace({agent,target=process.cwd(),dryRun=false,sou
     if(existing.errors.length)throw Error('Existing bundle validation failed: '+existing.errors.join('; '));
   }
   const plan=agent==='portable'?[]:install({agent,target:root,source:repairing?bundle:source});
+  const snapshot=inventory(repairing?bundle:source);
+  const manifest=desiredState({agent,mode:agent==='codex'?'link':'copy',snapshot,source:repairing?bundle:source});
+  if(agent==='codex')manifest.links=Object.fromEntries(plan.map(item=>[path.relative(root,item.to).split(path.sep).join('/'),`.engineering-kit/skills/${path.basename(item.to)}`]));
+  let trackInstallation=!repairing;
+  if(repairing) {
+    const existingManifest=readManifest(root);
+    if(existingManifest) {
+      if(!['portable','codex'].includes(existingManifest.agent))throw Error('Existing manifest uses another agent; init repair does not switch agents.');
+      trackInstallation=true;
+      manifest.source=existingManifest.source;
+      // Repair must not adopt local edits as the new original baseline.
+      manifest.files=Object.fromEntries(Object.entries(existingManifest.files).filter(([name])=>name.startsWith('.engineering-kit/')));
+    }
+  }
   const rule=agent==='cursor'?'.cursor/rules/fullstack-ai-engineering-kit.mdc':agent==='claude'?'CLAUDE.md':agent==='portable'?null:'AGENTS.md';
   let entryPath=null;let previous='';
   if(rule) {
@@ -70,5 +84,6 @@ export function initializeWorkspace({agent,target=process.cwd(),dryRun=false,sou
     if(previous)fs.appendFileSync(entryPath,`${previous.endsWith('\n')?'':'\n'}\n${addition}`);
     else fs.writeFileSync(entryPath,addition,{flag:exists(entryPath)?'w':'wx'});
   }
+  if(trackInstallation)fs.writeFileSync(safeDestination(root,manifestPath),JSON.stringify(manifest,null,2)+'\n',{flag:repairing?'w':'wx'});
   return {agent,target:root,paths};
 }

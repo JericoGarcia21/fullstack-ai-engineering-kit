@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Test only within authorized scope using safe fixtures. Distinguish reproduced vulnerabilities, suspected risks, and controls not verified. Cite evidence and affected paths without exposing sensitive data.
 5. Deliver a threat model and actionable findings with severity, confidence, impact, remediation, owner, and retest criteria. A checklist is evidence organization, not proof of security.
 
+## Decisions and verification
+
+Select controls from a named ASVS version and the actual threat model. Use authorized fixtures and minimize side effects; a standards reference is not a compliance or certification claim.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: Each high-risk trust boundary has a control and a verification method. Findings cite affected paths and reproducible evidence without exposing sensitive data. Unverified controls, residual risks, and remediation owners remain visible.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/threat-model.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

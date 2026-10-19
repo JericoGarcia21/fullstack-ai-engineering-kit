@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Keep changes reviewable; avoid premature abstractions, duplication, unused packages, and unrelated redesigns. Synchronize contracts and documentation with behavior.
 5. Run meaningful checks for the changed risks and record exact outcomes. Report completed criteria, remaining gaps, and next slice; never equate generated code with working functionality.
 
+## Decisions and verification
+
+Build a user-visible vertical slice with its authorization, persistence, failure behavior, and useful checks. Consult specialist skills only for the boundaries the slice actually changes.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: A complete acceptance journey is demonstrable from the user entry point. Denied, repeated, and conflicting actions preserve server and database invariants. Contracts, tests, and operating notes match the resulting behavior.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/implementation-plan.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

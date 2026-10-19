@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Record assumptions with confidence and who can resolve them. Do not silently turn missing answers into commitments.
 5. Deliver a project brief and a readiness summary: known facts, proposed MVP, blocking decisions, and next planning artifacts. Continue planning without writing product code.
 
+## Decisions and verification
+
+Use discovery to resolve uncertainty about the problem and users. For a bounded change with known behavior, inspect that flow rather than reopening the entire product strategy.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: The brief distinguishes confirmed needs, proposed scope, and assumptions. Each blocking question names the decision it affects; nonblocking gaps have a stated assumption. The proposed success measure has a baseline or a named way to obtain one.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/project-brief.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

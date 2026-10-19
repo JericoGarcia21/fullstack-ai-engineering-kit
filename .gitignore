@@ -11,4 +11,6 @@ Thumbs.db
 coverage/
 .validation-tmp/
 .engineering-kit/
+.engineering-kit-backups/
+.engineering-kit-update.lock
 *.tgz

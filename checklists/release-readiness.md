@@ -14,6 +14,7 @@ For the exact revision and target, assign PASS, FAIL, or NOT VERIFIED to each ap
 | Recovery | Rollback trigger, procedure, rehearsal or explicit evidence gap |
 | Operations | Health checks, logging redaction, monitoring/alerts, responsible operator |
 | Documentation | Setup, API, support and runbooks match candidate behavior |
+| AI behavior, when applicable | Versioned evaluations, permission/injection/failure checks, cost limits, provider/data constraints, and compatible model/prompt/index rollback |
 | Authorization | User approval for deployment and live infrastructure scope |
 
 A recommendation is not a deployment action. Use [the report](../templates/release-readiness.md) to record residual risks and next actions.

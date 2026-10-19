@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Check queries, network requests, bundle growth, and accessibility where relevant; require measurements before performance claims.
 5. Report checks executed and coverage gaps. Do not fabricate vulnerabilities, insist on personal style, or imply that an empty report proves absence of defects.
 
+## Decisions and verification
+
+Audit behavior in context: changed lines, callers, configuration, data assumptions, and tests. Separate confirmed defects from risks and optional maintainability suggestions.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: Findings are actionable and distinguish required fixes from preferences. Claims about performance or exploitability have evidence or an explicit uncertainty. The report states review limits and checks actually executed.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/code-audit-report.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

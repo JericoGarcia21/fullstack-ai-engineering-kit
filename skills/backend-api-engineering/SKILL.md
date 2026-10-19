@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Return useful stable errors without stack traces, SQL, tokens, or sensitive records. Apply bounded pagination, upload limits, rate limits, and CORS rules according to the actual threat model.
 5. Test success, malformed input, unauthenticated access, cross-user access, conflicts, and dependency failures. Keep the contract and callers synchronized.
 
+## Decisions and verification
+
+Define and preserve the API contract before implementation. Authentication identifies a caller; authorization must still be enforced for each requested resource and action.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: Contract tests exercise success, malformed input, authorization denial, conflict, and dependency failure. Cross-tenant fixtures prove that identifiers cannot bypass the access boundary. Concurrent/retried requests preserve the business invariant where applicable.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/api-contract.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

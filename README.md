@@ -2,7 +2,7 @@
 
 **An all-in-one engineering toolkit that helps AI coding assistants plan, build, test, review, and prepare software for release.**
 
-Give your coding assistant a reusable workflow instead of explaining your engineering standards in every conversation. The kit provides 17 focused Agent Skills, project templates, review checklists, and an npm-compatible installer.
+Give your coding assistant a reusable workflow instead of explaining your engineering standards in every conversation. The kit provides 19 focused Agent Skills, project templates, review checklists, and an npm-compatible installer.
 
 It runs through your existing coding assistant. Install it in a project folder, describe what you want to build, and ask the assistant to follow the workflow. You still choose the product, approve important decisions, and review the work.
 
@@ -15,7 +15,7 @@ It runs through your existing coding assistant. Install it in a project folder, 
 | During review | Investigate bugs, review security and code quality, run relevant tests, and measure performance changes |
 | Before release | Check actual evidence, production configuration, migrations, backups, recovery, monitoring, and deployment authorization |
 
-Use it for new projects or existing applications. A small bug fix needs a bounded fix and useful verification; a larger application needs more planning. You do not need to invoke all 17 skills for every task.
+Use it for new projects or existing applications. A small bug fix needs a bounded fix and useful verification; a larger application needs more planning. You do not need to invoke all 19 skills for every task.
 
 The toolkit provides guidance and files. Your assistant needs its own access to your code, terminal, test runners, and other development tools. Installing the kit does not automatically test, secure, or deploy your application.
 
@@ -24,7 +24,7 @@ The toolkit provides guidance and files. Your assistant needs its own access to 
 ### 1. Check the requirements
 
 - Node.js 22 or newer, with npm.
-- Git and network access for installation directly from GitHub.
+- Network access for registry installation; Git is additionally needed for direct GitHub installation.
 - A coding assistant such as Codex, Claude Code, Cursor, or OpenCode.
 - An existing project folder, which can be empty. No project package.json is required.
 
@@ -38,7 +38,7 @@ Open a terminal **inside the project you want the assistant to work on**, then r
 npx --yes --package=github:JericoGarcia21/fullstack-ai-engineering-kit fullstack-ai-engineering-kit init --agent codex
 ```
 
-This GitHub command requires the package-enabled version of this repository to be pushed first. The package has not been published to the npm registry.
+This command uses the GitHub repository after these changes are pushed. npm registry publication is deferred pending account authentication setup; version 0.2.0 has not been published to npm. For an unpushed checkout, use the local installation option below.
 
 Choose the value matching your assistant:
 
@@ -113,19 +113,30 @@ Skill names describe the work you want. Request one skill or a few relevant skil
 
 Every mode creates `.engineering-kit/` with a self-contained reference copy of the toolkit, including its skills, templates, checklists, examples, documentation, and MIT license.
 
-Native modes also install 17 skill folders in the assistant's discovery directory and add a workflow entry point. For example, a Codex project receives:
+Native modes also install 19 skill folders in the assistant's discovery directory and add a workflow entry point. For example, a Codex project receives:
 
 ```text
 your-project/
 |-- .engineering-kit/          Reference toolkit and reusable documents
-|-- .agents/skills/            17 Codex-discoverable skill folders
+|-- .agents/skills/            19 Codex-discoverable skill folders
 |-- AGENTS.md                  Existing guidance plus the toolkit workflow block
 `-- ...                        Your application files
 ```
 
-Existing instruction text is preserved. Existing toolkit bundles, skill folders, or conflicting rules cause the installer to stop rather than overwrite them. Automatic upgrades and a force option are not implemented; review an existing installation before replacing it. Unexpected filesystem failures can leave partial files, so inspect the reported paths before retrying.
+Existing instruction text is preserved. Existing toolkit bundles, skill folders, or conflicting rules cause init to stop rather than overwrite them. Use the explicit update commands for existing installations; init does not upgrade them. Updates preview changes, preserve local customizations, stop on conflicts, and back up replaced files. See [updates and migration](docs/updating.md). Unexpected filesystem failures can leave partial files, so inspect the reported paths before retrying.
 
 The installer does not change your application's package.json, dependency lockfile, or global agent settings. Review the generated files and commit them if your team should share the workflow.
+
+## Check and update an installed project
+
+```sh
+fullstack-ai-engineering-kit status
+fullstack-ai-engineering-kit check-updates
+fullstack-ai-engineering-kit update --dry-run
+fullstack-ai-engineering-kit update
+```
+
+Update uses the running CLI package; run a reviewed newer CLI first or pass --source with a reviewed local toolkit path. Users see pushed changes on GitHub; check-updates detects published GitHub releases, not ordinary pushes. Pushing to GitHub or updating a global CLI does not update existing projects automatically. Older installs need their original source as a migration baseline. See [update instructions](docs/updating.md) and [changelog](CHANGELOG.md). Release checks are explicit and install nothing.
 
 ## Included skills
 
@@ -135,13 +146,21 @@ The installer does not change your application's package.json, dependency lockfi
 | Interface | frontend-design, frontend-engineering, accessibility-review |
 | Application and data | backend-api-engineering, database-engineering, fullstack-development |
 | Quality and review | security-engineering, code-audit, qa-testing, debugging, performance-optimization |
+| AI systems | ai-engineering |
+| Video tutorials | app-video-tutorials |
 | Delivery | devops-deployment, documentation, release-readiness |
 
-See the [skill catalog](docs/skill-catalog.md) for each skill's purpose and instructions.
+See the [skill catalog](docs/skill-catalog.md) for each skill's purpose and instructions, and the [reference map](references/skill-sources.md) for the primary sources informing them. Skills include focused decision guides with failure cases, worked scenarios, completion evidence, and proposed behavioral evaluations.
+
+Use ai-engineering for model APIs, document retrieval, tool-using agents, evaluation, and model-training lifecycle work. Read only the references relevant to the project; ordinary API integration does not require a training pipeline.
+
+Use app-video-tutorials to create accurate app walkthroughs with real capture, animated highlights, captions, optional narration, and export review. Remotion is preferred for programmable animation; tools and upstream skills are not installed automatically. Start with the [video plan](templates/app-video-plan.md).
+
+Example request: "Use app-video-tutorials to create a 60-second captioned tutorial of the booking workflow using demo data. Use Remotion for animated callouts and deliver the video plus editable source."
 
 ## Other installation options
 
-To install the command once and reuse it across projects, after the package changes are available on GitHub:
+After these changes are pushed, install the GitHub command once and reuse it across projects:
 
 ```sh
 npm install --global github:JericoGarcia21/fullstack-ai-engineering-kit
@@ -159,7 +178,7 @@ To use a local checkout before pushing or publishing, run this **from another pr
 node /path/to/fullstack-ai-engineering-kit/bin/cli.mjs init --agent codex
 ```
 
-The [installation guide](docs/package-installation.md) covers tarball installation, pinned GitHub revisions, Windows commands, and publishing to npm. Other package managers have not been verified. The shorter registry command `npx fullstack-ai-engineering-kit` requires a separate npm publication and is not currently advertised as available.
+The [installation guide](docs/package-installation.md) covers tarball installation, pinned GitHub revisions, Windows commands, and publishing to npm. Other package managers have not been verified. npm registry publication is a future plan; registry install commands become usable only after a successful publication. GitHub installs can be pinned to a reviewed commit.
 
 ## Examples and documentation
 
@@ -181,7 +200,7 @@ npm run test:package
 
 The checks cover required files, skill metadata, local Markdown links, installer behavior, and offline npm package execution. These are toolkit checks; use your application's own test commands to verify product features.
 
-The latest recorded local results are 17 skills and 77 Markdown files validated with no errors, 22 regression tests passed, and package execution passed for all five installation modes. Actual discovery inside agent clients and remote GitHub CI remain unverified. See [validation results](docs/validation-results.md) for evidence and limits, and [CONTRIBUTING.md](CONTRIBUTING.md) to contribute.
+The latest recorded local results are 19 skills and 95 Markdown files validated with no errors, 48 regression tests passed, and package execution passed for all five installation modes. Actual discovery inside agent clients and remote GitHub CI remain unverified. See [validation results](docs/validation-results.md) for evidence and limits, and [CONTRIBUTING.md](CONTRIBUTING.md) to contribute.
 
 ## License
 

@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Define data entities and API contracts where relevant, including errors, authorization, concurrency, and external-service failures. Record privacy and operational constraints.
 5. Produce architecture.md, database-design.md, and implementation-plan.md. Present decisions and obtain approval before significant implementation unless that decision is explicitly delegated; record prior delegation rather than asking again.
 
+## Decisions and verification
+
+Base architecture on concrete quality scenarios and operational constraints. Use ATAM concepts to reason about trade-offs; a lightweight review is not a claim to have conducted a formal ATAM evaluation.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: Important requirements map to a component or enforceable boundary. Failure behavior and recovery ownership are explicit for critical dependencies. Unverified scale/cost assumptions and triggers for revisiting the design are recorded.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/architecture.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

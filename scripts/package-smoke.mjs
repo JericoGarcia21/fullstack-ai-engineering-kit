@@ -20,6 +20,9 @@ try {
   const consumer=path.join(temp,'consumer');fs.mkdirSync(consumer);
   npm(['install','--prefix',consumer,'--ignore-scripts','--no-audit','--no-fund','--offline',artifact]);
   const installed=path.join(consumer,'node_modules','fullstack-ai-engineering-kit');
+  const incoming=path.join(temp,'incoming');fs.cpSync(installed,incoming,{recursive:true});
+  const incomingPackage=path.join(incoming,'package.json');const metadata=JSON.parse(fs.readFileSync(incomingPackage,'utf8'));metadata.version='0.2.1';fs.writeFileSync(incomingPackage,JSON.stringify(metadata,null,2)+'\n');
+  fs.appendFileSync(path.join(incoming,'skills','debugging','SKILL.md'),'\nPackage update smoke fixture.\n');
   assert.ok(fs.existsSync(path.join(consumer,'node_modules','.bin',process.platform==='win32'?'fullstack-ai-engineering-kit.cmd':'fullstack-ai-engineering-kit')));
   for(const agent of ['codex','claude','cursor','opencode','portable']) {
     const workspace=path.join(temp,`workspace ${agent}`);fs.mkdirSync(workspace);
@@ -28,6 +31,23 @@ try {
     const output=npm(['exec','--offline','--prefix',consumer,'--','fullstack-ai-engineering-kit','init','--agent',agent,'--target',workspace],consumer);
     assert.ok(output.includes('Installed: '+agent));
     assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','templates','project-initialization.md')));
+    for(const file of ['guide.md','retrieval.md','agents.md','evaluation.md','training.md']) assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','skills','ai-engineering','references',file)));
+    assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','templates','ai-feature-plan.md')));
+    for(const file of ['guide.md','capture.md','remotion.md','audio-captions.md','video-qa.md']) assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','skills','app-video-tutorials','references',file)));
+    assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','templates','app-video-plan.md')));
+    const native={codex:'.agents/skills',claude:'.claude/skills',cursor:'.cursor/skills',opencode:'.opencode/skills'}[agent];
+    if(native) {
+      assert.ok(fs.existsSync(path.join(workspace,native,'ai-engineering','references','agents.md')));
+      assert.ok(fs.existsSync(path.join(workspace,native,'app-video-tutorials','references','remotion.md')));
+    }
+    const invoke=(args)=>npm(['exec','--offline','--prefix',consumer,'--','fullstack-ai-engineering-kit',...args,'--target',workspace],consumer);
+    const status=JSON.parse(invoke(['status','--json']));assert.equal(status.version,'0.2.0');assert.deepEqual(status.changes,[]);
+    assert.equal(JSON.parse(invoke(['check-updates','--source',incoming,'--json'])).updateAvailable,true);
+    const manifest=path.join(workspace,'.engineering-kit','installation.json');const before=fs.readFileSync(manifest,'utf8');
+    assert.equal(JSON.parse(invoke(['update','--source',incoming,'--dry-run','--json'])).dryRun,true);assert.equal(fs.readFileSync(manifest,'utf8'),before);
+    assert.ok(JSON.parse(invoke(['update','--source',incoming,'--json'])).backup);
+    assert.equal(JSON.parse(invoke(['status','--json'])).version,'0.2.1');
+    if(native)assert.ok(fs.readFileSync(path.join(workspace,native,'debugging','SKILL.md'),'utf8').includes('Package update smoke fixture.'));
   }
-  console.log('PASS: npm pack, offline tarball install, executable resolution, and 5 workspace modes.');
+  console.log('PASS: npm pack, offline tarball install, executable resolution, and init/status/check/preview/update in 5 workspace modes.');
 }finally{fs.rmSync(temp,{recursive:true,force:true});}

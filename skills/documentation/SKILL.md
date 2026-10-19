@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Use concise Markdown, relative links, original prose, and source attribution. Do not copy proprietary manuals or invent authorship, test results, or guarantees.
 5. Validate local links and execute safe documented commands when available. Record version-sensitive assumptions and documentation gaps.
 
+## Decisions and verification
+
+Choose the document type from the reader’s task. Keep tutorials, task instructions, reference, and explanation distinct enough to be useful without forcing four documents for a small change.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: A reader can identify prerequisites and the expected result. Examples match the implementation and use consistent names and versions. Links, executed commands, and known documentation gaps are recorded honestly.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/documentation-plan.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

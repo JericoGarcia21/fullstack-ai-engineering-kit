@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Configure least-privilege CI and environment separation. Pin dependencies and actions according to project policy; do not expose secrets in pull-request jobs.
 5. Deliver a runbook with pass/fail/not-verified evidence. Stop before deployment, live migrations, DNS changes, or infrastructure mutations unless the user has authorized that exact scope.
 
+## Decisions and verification
+
+Prepare a reproducible runbook for the actual hosting platform. Readiness work may proceed locally; production deployment, live migrations, DNS, and infrastructure changes require existing authorization for that scope.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: An operator can execute the runbook without undocumented commands or secret values. Monitoring, migration ordering, and rollback triggers are explicit. Executed rehearsals are distinguishable from proposed procedures and live authorization.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/deployment-checklist.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

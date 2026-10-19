@@ -10,6 +10,7 @@ fullstack-ai-engineering-kit/
 ├── AGENTS.md
 ├── bin/
 │   └── cli.mjs
+├── CHANGELOG.md
 ├── checklists/
 │   ├── frontend-ux.md
 │   ├── release-readiness.md
@@ -23,6 +24,7 @@ fullstack-ai-engineering-kit/
 │   ├── portable-master-instructions.md
 │   ├── repository-tree.txt
 │   ├── skill-catalog.md
+│   ├── updating.md
 │   ├── validation-results.md
 │   └── validation.md
 ├── examples/
@@ -40,13 +42,17 @@ fullstack-ai-engineering-kit/
 ├── README.md
 ├── references/
 │   ├── deployment-targets.md
+│   ├── skill-sources.md
 │   ├── sources.md
 │   └── workflow.md
 ├── scripts/
 │   ├── install.mjs
 │   ├── install.test.mjs
 │   ├── package-smoke.mjs
+│   ├── state.mjs
 │   ├── tree.mjs
+│   ├── update.mjs
+│   ├── update.test.mjs
 │   ├── validate.mjs
 │   ├── validate.test.mjs
 │   ├── workspace.mjs
@@ -55,6 +61,22 @@ fullstack-ai-engineering-kit/
 │   ├── accessibility-review/
 │   │   ├── references/
 │   │   │   └── guide.md
+│   │   └── SKILL.md
+│   ├── ai-engineering/
+│   │   ├── references/
+│   │   │   ├── agents.md
+│   │   │   ├── evaluation.md
+│   │   │   ├── guide.md
+│   │   │   ├── retrieval.md
+│   │   │   └── training.md
+│   │   └── SKILL.md
+│   ├── app-video-tutorials/
+│   │   ├── references/
+│   │   │   ├── audio-captions.md
+│   │   │   ├── capture.md
+│   │   │   ├── guide.md
+│   │   │   ├── remotion.md
+│   │   │   └── video-qa.md
 │   │   └── SKILL.md
 │   ├── backend-api-engineering/
 │   │   ├── references/
@@ -124,7 +146,9 @@ fullstack-ai-engineering-kit/
 └── templates/
     ├── acceptance-criteria.md
     ├── accessibility-report.md
+    ├── ai-feature-plan.md
     ├── api-contract.md
+    ├── app-video-plan.md
     ├── architecture.md
     ├── code-audit-report.md
     ├── database-design.md

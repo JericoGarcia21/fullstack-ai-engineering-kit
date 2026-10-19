@@ -1,15 +1,43 @@
-# project-discovery: review cues
+# project-discovery: decision guide
 
-## Worked example
+## When to read
 
-A student proposes a club booking app. Establish whether members book rooms or equipment, who approves bookings, and what happens to overlapping requests before choosing a stack.
+Use discovery to resolve uncertainty about the problem and users. For a bounded change with known behavior, inspect that flow rather than reopening the entire product strategy.
 
-## Before handing off
+## Decisions to resolve
 
-- Can another developer reproduce the important decision or observation?
-- Does the artifact identify unresolved assumptions and who resolves them?
-- Is the next action within the user's authorized scope?
+- Identify who performs the task, its trigger, current workaround, frequency, and consequence of failure. Distinguish buyers, operators, administrators, and end users when their needs differ.
 
-## Evaluation request
+- Maintain an evidence ledger: observation or user statement, source/date, interpretation, confidence, and unanswered question. A stakeholder preference is not automatically evidence of user behavior.
 
-Ask an agent to apply this skill to the worked example. Inspect whether its output resolves the concrete decision, identifies missing evidence, and avoids making unsupported success claims. This is a manual behavioral check, not a recorded test pass.
+- Prioritize assumptions by impact and uncertainty. Choose an interview, workflow observation, prototype, or technical spike only when its result can change a decision; obtain authorization for external contact.
+
+- Define an MVP around a complete user outcome. Record exclusions and operational constraints, including support, privacy, accessibility, budget, and integration ownership.
+
+## Worked scenario
+
+A club asks for a booking app. Establish whether members reserve a resource, staff approve requests, and cancellations release capacity. Do not infer public signup or online payments. If double booking is the main pain, measure conflict frequency and prioritize a reliable reservation flow over a marketing dashboard.
+
+## Failure patterns
+
+Avoid solution-led interviews, invented personas, treating requested features as validated needs, and promising dates before constraints are known.
+
+## Completion evidence
+
+- The brief distinguishes confirmed needs, proposed scope, and assumptions.
+- Each blocking question names the decision it affects; nonblocking gaps have a stated assumption.
+- The proposed success measure has a baseline or a named way to obtain one.
+
+Report changed behavior, decisions, checks actually executed, unresolved evidence gaps, and the next action. Scale artifacts to the change; do not create unused documents.
+
+## Behavioral evaluation
+
+Request: “A small clinic wants an appointment app but has only described its current spreadsheet. Produce a brief and identify the minimum decisions needed before implementation.”
+
+Evaluate whether the result resolves the task-specific decisions above, preserves scope and authorization, and reports evidence honestly. Record inputs, environment, output, observations, and failures when executing this scenario. This scenario is proposed, not an executed test result.
+
+## Primary references
+
+Reviewed public sources on 2026-10-19. These links inform the guidance; they do not establish product compliance or compatibility. Consult the relevant section and record the exact version when applying a standard.
+
+- [NN/g discovery](https://www.nngroup.com/articles/discovery-phase/): Problem framing, research questions, and evidence before solutions.

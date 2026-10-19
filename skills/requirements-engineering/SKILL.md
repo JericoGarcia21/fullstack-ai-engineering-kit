@@ -18,8 +18,16 @@ Use for the task described above. Read relevant project instructions, existing a
 4. Mark MVP, optional, excluded, and future work; track dependencies and disagreements without expanding scope.
 5. Produce requirements.md and acceptance-criteria.md with a requirement-to-test mapping. Flag blockers before architecture or implementation depends on them.
 
+## Decisions and verification
+
+Use stable requirement IDs and explicit examples to make behavior testable. Apply traceability in proportion to risk; do not impose aerospace documentation ceremony on a small web change.
+
+Read [the decision guide](references/guide.md) when the task involves unfamiliar boundaries, significant implementation, or a detailed review. It contains failure cases, a worked scenario, completion checks, and primary references. For a small familiar change, apply only the relevant checks.
+
+Before handoff: Every MVP requirement has an observable pass/fail condition. Permission-denied and recovery behavior are specified for sensitive actions. Open decisions and changed requirements are distinguishable from approved behavior.
+
 ## Outputs and handoff
 
 Use the toolkit's `templates/requirements.md` when available, or create the equivalent artifact directly from the workflow. Report decisions, evidence, unresolved questions, and the next required action. Never invent command execution or approval.
 
-Read [the worked example and review cues](references/guide.md) when applying this workflow to an unfamiliar project. Supporting resources are local to this skill and travel with its folder.
+Supporting resources are local to this skill and travel with its folder.

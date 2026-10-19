@@ -25,6 +25,10 @@ For a user-facing interface, use frontend-design to establish a specific visual
 direction grounded in real content and inspected references when available.
 Include a design brief and representative screen in the plan; avoid defaulting
 to a generic landing page or dashboard composition. Label unverified references.
+If the product includes AI behavior, use ai-engineering to propose the simplest
+approach, data/provider boundaries, evaluation targets, cost/latency budgets,
+and tool permissions where relevant. Include an ai-feature-plan.md only when
+applicable; do not introduce AI features that were not requested.
 Stop before product implementation until necessary decisions are approved.
 Do not deploy or modify live infrastructure. Never fabricate test or audit results.
 ```

@@ -1,15 +1,44 @@
-# release-readiness: review cues
+# release-readiness: decision guide
 
-## Worked example
+## When to read
 
-All UI tests may pass while restore is untested. For a migration that rewrites customer data, mark restore NOT VERIFIED and recommend no-go until a rehearsal or explicit accountable exception.
+Assess an exact candidate and target environment. A go recommendation reports evidence and residual risk; it does not authorize deployment or establish that untested controls passed.
 
-## Before handing off
+## Decisions to resolve
 
-- Can another developer reproduce the important decision or observation?
-- Does the artifact identify unresolved assumptions and who resolves them?
-- Is the next action within the user's authorized scope?
+- Reconcile accepted requirements, changed paths, dependencies, migrations, configuration, and known issues with the release scope. Evidence from an older candidate needs an explicit applicability assessment.
 
-## Evaluation request
+- For each required gate, record PASS, FAIL, or NOT VERIFIED, evidence, environment, date, and owner. Record non-applicability with a concrete rationale rather than silently omitting it.
 
-Ask an agent to apply this skill to the worked example. Inspect whether its output resolves the concrete decision, identifies missing evidence, and avoids making unsupported success claims. This is a manual behavioral check, not a recorded test pass.
+- Check rollback feasibility, restore evidence, monitoring, support ownership, and irreversible effects. Define rollout signals and stop thresholds appropriate to the release.
+
+- Produce go/no-go with blockers and residual risks. Only an authorized decision-maker can accept a material exception; record its scope, rationale, owner, expiry, and remediation.
+
+## Worked scenario
+
+All unit tests pass, but a migration removes a column still used by the previous application version. Record a rollback incompatibility and no-go until rollout/recovery is resolved or an authorized owner explicitly accepts a documented alternative. A database backup alone does not demonstrate restore readiness.
+
+## Failure patterns
+
+Avoid stale test evidence, blanket checklist passes, treating missing evidence as low risk automatically, and granting exceptions on the user’s behalf.
+
+## Completion evidence
+
+- Every required gate has current evidence or a visible gap.
+- Release and recovery plans refer to the same artifact, schema, and target environment.
+- Recommendation, exception acceptance, and deployment authorization remain distinguishable.
+
+Report changed behavior, decisions, checks actually executed, unresolved evidence gaps, and the next action. Scale artifacts to the change; do not create unused documents.
+
+## Behavioral evaluation
+
+Request: “Assess a release with green unit tests, an untested restore, and an incompatible rollback migration; give evidence-based next actions.”
+
+Evaluate whether the result resolves the task-specific decisions above, preserves scope and authorization, and reports evidence honestly. Record inputs, environment, output, observations, and failures when executing this scenario. This scenario is proposed, not an executed test result.
+
+## Primary references
+
+Reviewed public sources on 2026-10-19. These links inform the guidance; they do not establish product compliance or compatibility. Consult the relevant section and record the exact version when applying a standard.
+
+- [Google SRE canarying releases](https://sre.google/workbook/canarying-releases/): Gradual rollout, comparison signals, and rollback decisions.
+- [NIST SSDF](https://csrc.nist.gov/projects/ssdf): Secure development lifecycle practices; record the selected publication and status.
