@@ -4,6 +4,7 @@ Native installation is described in [agent compatibility](agent-compatibility.md
 
 | Skill | When to use |
 | --- | --- |
+| [lazy-genius](../skills/lazy-genius/SKILL.md) | Optional developer persona for inventive solutions with minimal code and complexity. Invoke explicitly with `$lazy-genius`. |
 | [project-discovery](../skills/project-discovery/SKILL.md) | Discover product goals, users, workflows, constraints, and MVP scope before starting a new software project. |
 | [requirements-engineering](../skills/requirements-engineering/SKILL.md) | Turn an agreed product scope into measurable requirements and acceptance criteria; use for ambiguous behavior or changing requirements. |
 | [system-architecture](../skills/system-architecture/SKILL.md) | Choose and document a proportionate system architecture, stack, boundaries, and trade-offs before significant implementation. |
