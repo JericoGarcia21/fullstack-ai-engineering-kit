@@ -129,12 +129,16 @@ The installer does not change your application's package.json, dependency lockfi
 
 ## Check and update an installed project
 
-```sh
-fullstack-ai-engineering-kit status
-fullstack-ai-engineering-kit check-updates
-fullstack-ai-engineering-kit update --dry-run
-fullstack-ai-engineering-kit update
+Run these from your project directory (no global CLI installation required):
+
+```powershell
+npx --yes --package=github:JericoGarcia21/fullstack-ai-engineering-kit fullstack-ai-engineering-kit status
+npx --yes --package=github:JericoGarcia21/fullstack-ai-engineering-kit fullstack-ai-engineering-kit check-updates
+npx --yes --package=github:JericoGarcia21/fullstack-ai-engineering-kit fullstack-ai-engineering-kit update --dry-run
+npx --yes --package=github:JericoGarcia21/fullstack-ai-engineering-kit fullstack-ai-engineering-kit update
 ```
+
+Review the preview before applying, then restart your coding agent. Use `update`, not `init`, for installed skills. These GitHub commands select the default branch; pin a reviewed tag or commit for repeatability. If PowerShell blocks `npx.ps1`, use `npx.cmd` instead of `npx`.
 
 Update uses the running CLI package; run a reviewed newer CLI first or pass --source with a reviewed local toolkit path. Users see pushed changes on GitHub; check-updates detects published GitHub releases, not ordinary pushes. Pushing to GitHub or updating a global CLI does not update existing projects automatically. Older installs need their original source as a migration baseline. See [update instructions](docs/updating.md) and [changelog](CHANGELOG.md). Release checks are explicit and install nothing.
 

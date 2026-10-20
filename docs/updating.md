@@ -2,6 +2,61 @@
 
 A git push changes the toolkit repository, not existing project installations. Each project keeps its own snapshot. New installations from 0.2.0 onward record their version and hashes in `.engineering-kit/installation.json`. Updating a global CLI also does not update those project files automatically.
 
+## Quick start: update installed skills with PowerShell
+
+You need Node.js 22 or newer, npm/npx, and Git available for the GitHub package commands. Open PowerShell in the project that already contains `.engineering-kit`. For example, replace this path with your own project:
+
+```powershell
+cd C:\Users\Jerico\Documents\intelchecker
+```
+
+Check what is installed and whether tracked toolkit files have local changes:
+
+```powershell
+npx --yes --package=github:JericoGarcia21/fullstack-ai-engineering-kit fullstack-ai-engineering-kit status
+```
+
+Check for a newer published GitHub release (this does not update files):
+
+```powershell
+npx --yes --package=github:JericoGarcia21/fullstack-ai-engineering-kit fullstack-ai-engineering-kit check-updates
+```
+
+The release check detects published releases, not every push. To preview the changes from the GitHub default branch, run:
+
+```powershell
+npx --yes --package=github:JericoGarcia21/fullstack-ai-engineering-kit fullstack-ai-engineering-kit update --dry-run
+```
+
+Review the preview. If it reports no conflicts, apply the update:
+
+```powershell
+npx --yes --package=github:JericoGarcia21/fullstack-ai-engineering-kit fullstack-ai-engineering-kit update
+```
+
+Check status again using the first command, then restart your coding agent to load the updated skills. Updates create backups in `.engineering-kit-backups/`. A successful update records installation tracking; future updates do not need `--baseline`.
+
+These commands run the CLI through npx without installing a global command. The GitHub package selects the default branch; for a repeatable update, append `#RELEASE_TAG` or `#COMMIT_SHA` to the package specification, using the same reviewed revision for preview and apply. The npx commands require network access when the selected package is not cached. Although `status` itself is offline, obtaining its CLI through npx may use the network.
+
+For tracked installations with the current CLI bundled locally, status can also run without fetching a package:
+
+```powershell
+node .engineering-kit/bin/cli.mjs status
+```
+
+That bundled CLI describes the installed snapshot; use an independent newer package or source for updating it.
+
+### Common errors
+
+| Message | What to do |
+| --- | --- |
+| `fullstack-ai-engineering-kit` is not recognized | Use the full npx command above. Running npx does not install a permanent global command. |
+| PowerShell blocks `npx.ps1` | Replace `npx` with `npx.cmd` in the commands above. |
+| `Existing bundle validation failed` after running `init` | Use `update` for an existing installation. `init` does not upgrade older bundles. |
+| `Legacy update requires --agent and --baseline` | Follow [legacy migration](#migrate-a-previously-installed-project) below once, using the original unmodified source. Do not use the installed bundle as its own baseline. |
+| Update reports conflicts | No update is applied. Follow [conflict handling](#what-changes-and-what-stays), preserve customizations, and preview again. |
+| Release availability is unknown | The release lookup did not establish whether you are current. See the release-check details below or compare a reviewed local source. |
+
 ## Inspect a project
 
 Run a current CLI from the project directory:
@@ -82,6 +137,15 @@ fullstack-ai-engineering-kit update --agent codex --baseline /path/to/original-t
 
 Choose the agent that owns the existing installation. Supply `--agent portable` for bundle-only installs. Codex copies and project-local linked layouts are supported; mixed legacy layouts require manual reconciliation. Existing modifications participate in the same conflict checks. After migration, the manifest enables ordinary updates without `--baseline`.
 
+With the GitHub CLI in PowerShell, replace the baseline path with the recovered original source directory:
+
+```powershell
+npx --yes --package=github:JericoGarcia21/fullstack-ai-engineering-kit fullstack-ai-engineering-kit update --agent codex --baseline "C:\path\to\original-toolkit" --dry-run
+npx --yes --package=github:JericoGarcia21/fullstack-ai-engineering-kit fullstack-ai-engineering-kit update --agent codex --baseline "C:\path\to\original-toolkit"
+```
+
+Review the first command's preview before running the second. This uses the fetched CLI package as the incoming source. On subsequent updates, use the quick-start commands without `--baseline`.
+
 If the original source cannot be recovered, do not guess a baseline. Back up the existing installation, install the new toolkit into a separate empty project directory, and manually reconcile toolkit-owned content. Never delete an entire shared skills directory or replace a project's instruction file. Standalone skill-only installs made with scripts/install.mjs have no bundle/manifest and require this manual reconciliation or migration to a project bundle.
 
 ## Backups and interrupted updates
@@ -96,7 +160,7 @@ If interrupted, first ensure the recorded updater process is no longer running. 
 
 Maintainers should bump package.json, update [the changelog](../CHANGELOG.md), run repository/package checks, and publish a GitHub release with the matching reviewed tag and migration notes. Publishing is a separate authorized action. Users can subscribe to repository release notifications using GitHub Watch settings, or run `check-updates` when they choose. Ordinary pushes are not automatically installed.
 
-GitHub release lookup and npm package selection were checked against [GitHub Releases API documentation](https://docs.github.com/en/rest/releases/releases#get-the-latest-release) and [npm package specifications](https://docs.npmjs.com/cli/v11/using-npm/package-spec/) on 2026-10-19. See [validation results](validation-results.md) for runtime evidence and limits.
+GitHub release lookup and npx execution were reviewed against [GitHub Releases API documentation](https://docs.github.com/en/rest/releases/releases#get-the-latest-release) and [npm exec documentation](https://docs.npmjs.com/cli/v11/commands/npm-exec/) on 2026-10-20. GitHub package selection was checked against [npm package specifications](https://docs.npmjs.com/cli/v11/using-npm/package-spec/) on 2026-10-19. See [validation results](validation-results.md) for runtime evidence and limits.
 
 ## Deferred publication plan
 
