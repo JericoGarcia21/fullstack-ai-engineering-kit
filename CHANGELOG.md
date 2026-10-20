@@ -2,6 +2,15 @@
 
 Versions below describe toolkit changes. Registry availability and GitHub release publication are separate; consult the release evidence for publication results.
 
+## Unreleased
+
+- Add adaptive-effort as default workflow guidance in repository, installed native entry points, and portable instructions. Scale effort to complexity and risk while preserving task completeness and required checks.
+- Existing installations: after updating, append the following to the project AGENTS.md, CLAUDE.md, or toolkit Cursor rule (portable users should reload the updated portable instructions). Updates preserve these project entry points.
+
+  > Apply adaptive effort by default: keep simple tasks concise and focused; deepen investigation and verification for complexity, risk, uncertainty, or failures. Preserve complete results and required checks. Avoid repeated work; report usage or savings only with supporting measurements. See .engineering-kit/skills/adaptive-effort/SKILL.md when needed.
+
+- Add measurement boundaries and evaluation scenarios; no live telemetry integration or measured savings are claimed.
+
 ## 0.2.0 — 2026-10-19
 
 - Expand all engineering skills with decision guides, failure cases, and primary references.

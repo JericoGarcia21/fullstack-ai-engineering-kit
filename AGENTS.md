@@ -4,6 +4,8 @@ For a new product, read [the initialization prompt](templates/project-initializa
 
 For significant implementation, present requirements, architecture, security/QA needs, and the feature plan first; stop until necessary decisions are approved, unless the user already delegated them. For small fixes, use a short proportional plan. Do not repeatedly seek an approval already granted.
 
+Apply adaptive effort by default: keep simple tasks concise and focused; deepen investigation and verification for complexity, risk, uncertainty, or failures. Preserve complete results and required checks. Avoid repeated work; report usage or savings only with supporting measurements. See [adaptive effort](skills/adaptive-effort/SKILL.md) when needed.
+
 Choose only the relevant skills from [the catalog](docs/skill-catalog.md). Read their SKILL.md and only needed supporting references. Build vertical features and keep UI, server authorization, data, tests, and documentation synchronized. Never hardcode secrets or fabricate evidence.
 
 Run `node scripts/validate.mjs` and `npm test` after toolkit changes. For package or installer changes also run `npm run test:package`. These checks validate packaging, not product security or behavior. Before release, use [release gates](checklists/release-readiness.md). Do not deploy or change live infrastructure without user authorization.

@@ -18,6 +18,9 @@ for(const [agent,entry] of [['codex','AGENTS.md'],['claude','CLAUDE.md'],['openc
   initializeWorkspace({agent,target:root});
   const text=fs.readFileSync(path.join(root,entry),'utf8');if(agent!=='cursor')assert.ok(text.startsWith(original));
   assert.ok(text.includes('.engineering-kit/references/workflow.md'));
+  const adaptive='.engineering-kit/skills/adaptive-effort/SKILL.md';
+  assert.ok(text.includes(adaptive));
+  assert.ok(fs.existsSync(path.join(root,adaptive)));
   assert.ok(fs.existsSync(path.join(root,'.engineering-kit','templates','project-initialization.md')));
   assert.equal(fs.readFileSync(path.join(root,'app.php'),'utf8'),'<?php echo "hello";');assert.ok(!fs.existsSync(path.join(root,'package.json')));
   const bundle=path.join(root,'.engineering-kit');

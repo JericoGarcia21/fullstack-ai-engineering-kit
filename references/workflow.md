@@ -1,5 +1,9 @@
 # Engineering workflow
 
+## Default adaptive effort
+
+Apply adaptive effort by default: keep simple tasks concise and focused; deepen investigation and verification for complexity, risk, uncertainty, or failures. Preserve complete results and required checks. Avoid repeated work; report usage or savings only with supporting measurements. Read [adaptive-effort](../skills/adaptive-effort/SKILL.md) when effort selection or measurement needs detail. User preferences and required approvals still apply.
+
 ## Before code
 
 1. Discover the problem, users, workflow, constraints, roles, permissions, edge cases, and deliverables. Separate facts, assumptions, MVP, optional work, future work, and exclusions.

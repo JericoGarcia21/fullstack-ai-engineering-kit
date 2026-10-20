@@ -2,9 +2,15 @@
 
 **An all-in-one engineering toolkit that helps AI coding assistants plan, build, test, review, and prepare software for release.**
 
-Give your coding assistant a reusable workflow instead of explaining your engineering standards in every conversation. The kit provides 20 focused Agent Skills, project templates, review checklists, and an npm-compatible installer.
+Give your coding assistant a reusable workflow instead of explaining your engineering standards in every conversation. The kit provides 21 focused Agent Skills, project templates, review checklists, and an npm-compatible installer.
 
 It runs through your existing coding assistant. Install it in a project folder, describe what you want to build, and ask the assistant to follow the workflow. You still choose the product, approve important decisions, and review the work.
+
+## Adaptive effort by default
+
+The installed workflow guides agents to keep simple tasks concise and focused, and increase investigation and verification for complex, risky, or uncertain work. It preserves complete deliverables and required checks while avoiding repeated work. See [adaptive-effort](skills/adaptive-effort/SKILL.md).
+
+This is portable guidance for agents that read the instructions, not a guaranteed host setting or live usage meter. Tokens, credits, and cost can be reported only when the host exposes them; savings need a comparable baseline. No measured savings are claimed. Existing projects need the updated skill and default instruction block; use the [update workflow](docs/updating.md) and review project instructions, since updates preserve local entry-point text.
 
 ## What does it help with?
 
@@ -15,7 +21,7 @@ It runs through your existing coding assistant. Install it in a project folder, 
 | During review | Investigate bugs, review security and code quality, run relevant tests, and measure performance changes |
 | Before release | Check actual evidence, production configuration, migrations, backups, recovery, monitoring, and deployment authorization |
 
-Use it for new projects or existing applications. A small bug fix needs a bounded fix and useful verification; a larger application needs more planning. You do not need to invoke all 20 skills for every task.
+Use it for new projects or existing applications. A small bug fix needs a bounded fix and useful verification; a larger application needs more planning. You do not need to invoke all 21 skills for every task.
 
 The toolkit provides guidance and files. Your assistant needs its own access to your code, terminal, test runners, and other development tools. Installing the kit does not automatically test, secure, or deploy your application.
 
@@ -113,12 +119,12 @@ Skill names describe the work you want. Request one skill or a few relevant skil
 
 Every mode creates `.engineering-kit/` with a self-contained reference copy of the toolkit, including its skills, templates, checklists, examples, documentation, and MIT license.
 
-Native modes also install 20 skill folders in the assistant's discovery directory and add a workflow entry point. For example, a Codex project receives:
+Native modes also install 21 skill folders in the assistant's discovery directory and add a workflow entry point. For example, a Codex project receives:
 
 ```text
 your-project/
 |-- .engineering-kit/          Reference toolkit and reusable documents
-|-- .agents/skills/            20 Codex-discoverable skill folders
+|-- .agents/skills/            21 Codex-discoverable skill folders
 |-- AGENTS.md                  Existing guidance plus the toolkit workflow block
 `-- ...                        Your application files
 ```
@@ -146,6 +152,7 @@ Update uses the running CLI package; run a reviewed newer CLI first or pass --so
 
 | Area | Skills |
 | --- | --- |
+| Default efficiency | adaptive-effort |
 | Developer persona | lazy-genius (optional) |
 | Planning | project-discovery, requirements-engineering, system-architecture |
 | Interface | frontend-design, frontend-engineering, accessibility-review |

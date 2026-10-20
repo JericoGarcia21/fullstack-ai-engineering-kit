@@ -62,6 +62,10 @@ fullstack-ai-engineering-kit/
 │   │   ├── references/
 │   │   │   └── guide.md
 │   │   └── SKILL.md
+│   ├── adaptive-effort/
+│   │   ├── references/
+│   │   │   └── guide.md
+│   │   └── SKILL.md
 │   ├── ai-engineering/
 │   │   ├── references/
 │   │   │   ├── agents.md

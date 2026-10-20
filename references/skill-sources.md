@@ -24,6 +24,10 @@ Public sources reviewed on 2026-10-19. This map supplements the host/integration
 | [ai-engineering](../skills/ai-engineering/SKILL.md) | [Anthropic building effective agents](https://www.anthropic.com/engineering/building-effective-agents); [NIST Generative AI Profile](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf); [OWASP GenAI Security Project](https://genai.owasp.org/); [Google Cloud MLOps](https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) |
 | [app-video-tutorials](../skills/app-video-tutorials/SKILL.md) | [Remotion rendering](https://www.remotion.dev/docs/render); [animation](https://www.remotion.dev/docs/animating-properties); [agent skills](https://www.remotion.dev/docs/ai/skills); [license](https://www.remotion.dev/docs/license); [Playwright videos](https://playwright.dev/docs/videos); [W3C accessible media](https://www.w3.org/WAI/media/av/) |
 
+## Adaptive effort
+
+[adaptive-effort](../skills/adaptive-effort/SKILL.md) is original toolkit guidance added on 2026-10-20. It makes no new host integration or measured savings claims. Its [decision guide](../skills/adaptive-effort/references/guide.md) defines comparison requirements and proposed behavioral checks.
+
 ## Applying the references
 
 - Record the publication, version/status, control or section, applicability, and evidence when a project adopts a standard. Distinguish draft guidance from final publications.

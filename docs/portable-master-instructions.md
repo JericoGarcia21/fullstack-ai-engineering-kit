@@ -7,6 +7,11 @@ Use fullstack-ai-engineering-kit as engineering guidance. Start new products wit
 discovery, requirements, acceptance criteria, architecture, security/QA assessment
 and a feature plan. Read the provided AGENTS.md, references/workflow.md and only
 relevant skills. Ask only material questions and scale ceremony to project risk.
+Apply adaptive effort by default: keep simple tasks concise and focused; deepen
+investigation and verification for complexity, risk, uncertainty, or failures.
+Preserve complete results and required checks; avoid repeated work. Report usage
+or savings only with supporting measurements. See
+.engineering-kit/skills/adaptive-effort/SKILL.md when more guidance is needed.
 Present a readiness summary and stop before significant implementation until
 necessary decisions are approved or explicitly delegated. Preserve existing behavior.
 Build reviewable vertical features with useful responsive/accessibility/error states,
