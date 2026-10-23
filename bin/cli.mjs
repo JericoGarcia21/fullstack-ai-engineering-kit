@@ -57,7 +57,7 @@ try {
       else {
         console.log('Templates, checklists, and all skills: .engineering-kit/ (new installs include a version manifest).');
         if(result.agent==='codex')console.log('Discovery: .agents/skills/ (linked to .engineering-kit/skills/).');
-        console.log(result.agent==='portable'?'Provide .engineering-kit/docs/portable-master-instructions.md to your agent. Native discovery is unverified.':'Reload your coding agent and verify that project-discovery is available.');
+        console.log(result.agent==='portable'?'Provide .engineering-kit/docs/portable-master-instructions.md to your agent. Native discovery is unverified.':'Reload your coding agent and verify that product-definition is available.');
         console.log('Updates: run status and check-updates explicitly; no background network checks.');
         console.log('Start: Follow .engineering-kit/templates/project-initialization.md to plan my project before implementation.');
       }

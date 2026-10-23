@@ -62,9 +62,9 @@ for(const agent of ['codex','claude','cursor','opencode','portable'])test(`${age
 
 test('preserves unchanged local edits and reports them after update',()=>fixture(({old,incoming,target})=>{
   initializeWorkspace({agent:'claude',target,source:old});
-  const local='.claude/skills/debugging/SKILL.md';append(target,local,'\nLocal debugging policy.\n');
+  const local='.claude/skills/diagnostics/SKILL.md';append(target,local,'\nLocal diagnostics policy.\n');
   const result=updateWorkspace({target,source:incoming});assert.ok(result.preserved.includes(local));
-  assert.ok(fs.readFileSync(path.join(target,local),'utf8').includes('Local debugging policy.'));
+  assert.ok(fs.readFileSync(path.join(target,local),'utf8').includes('Local diagnostics policy.'));
   assert.ok(installationStatus({target}).changes.some(item=>item.path===local));
 }));
 
@@ -85,11 +85,11 @@ test('adds and removes skill files and Codex links while preserving unrelated co
   fs.rmSync(path.join(incoming,'skills','retired-example'),{recursive:true});
   const added=path.join(incoming,'skills','new-example');fs.mkdirSync(path.join(added,'references'),{recursive:true});
   fs.writeFileSync(path.join(added,'SKILL.md'),'---\nname: new-example\ndescription: "A new example."\nlicense: MIT\n---\n\n# New example\nUse it.\n');fs.writeFileSync(path.join(added,'references','guide.md'),'# Guide\n');
-  const newFile=path.join(incoming,'skills','debugging','references','extra.md');fs.writeFileSync(newFile,'# New guide\n');
+  const newFile=path.join(incoming,'skills','diagnostics','references','extra.md');fs.writeFileSync(newFile,'# New guide\n');
   const result=updateWorkspace({target,source:incoming});assert.equal(result.conflicts.length,0);
   assert.ok(!fs.existsSync(path.join(target,'.agents','skills','retired-example')));
   assert.ok(fs.lstatSync(path.join(target,'.agents','skills','new-example')).isSymbolicLink());
-  assert.ok(fs.existsSync(path.join(target,'.agents','skills','debugging','references','extra.md')));
+  assert.ok(fs.existsSync(path.join(target,'.agents','skills','diagnostics','references','extra.md')));
 }));
 
 test('new incoming file cannot overwrite untracked content',()=>fixture(({old,incoming,target})=>{
@@ -114,7 +114,7 @@ test('legacy migration requires an independent original baseline',()=>fixture(({
 
 test('legacy migration detects local customization instead of treating it as baseline',()=>fixture(({old,incoming,target})=>{
   initializeWorkspace({agent:'claude',target,source:old});fs.unlinkSync(path.join(target,manifestPath));
-  append(target,'.claude/skills/debugging/SKILL.md','\ncustom\n');append(incoming,'skills/debugging/SKILL.md','\nupstream\n');
+  append(target,'.claude/skills/diagnostics/SKILL.md','\ncustom\n');append(incoming,'skills/diagnostics/SKILL.md','\nupstream\n');
   assert.ok(updateWorkspace({target,source:incoming,agent:'claude',baseline:old}).conflicts.some(item=>item.path.startsWith('.claude/')));
 }));
 
@@ -130,7 +130,7 @@ test('repairing portable discovery preserves the original baseline for local edi
   assert.ok(installationStatus({target}).changes.some(change=>change.path==='.engineering-kit/README.md'));
 }));
 
-test('legacy 17-skill bundle gains the new skills and keeps copied Codex layout',()=>fixture(({old,incoming,target})=>{
+test('legacy bundle gains optional specialist skills and keeps copied Codex layout',()=>fixture(({old,incoming,target})=>{
   initializeWorkspace({agent:'codex',target,source:old});fs.unlinkSync(path.join(target,manifestPath));
   for(const skill of fs.readdirSync(path.join(old,'skills'))) {
     const link=path.join(target,'.agents','skills',skill);
@@ -159,10 +159,10 @@ test('malicious manifest paths cannot claim root instructions or escape the proj
 test('unexpected junctions cannot redirect toolkit writes',()=>fixture(({old,incoming,target,temp})=>{
   initializeWorkspace({agent:'codex',target,source:old});
   const other=path.join(temp,'outside');fs.mkdirSync(other);
-  const linked=path.join(target,'.agents','skills','debugging');
+  const linked=path.join(target,'.agents','skills','diagnostics');
   if(process.platform==='win32')fs.rmdirSync(linked);else fs.unlinkSync(linked);
   fs.symlinkSync(other,linked,process.platform==='win32'?'junction':'dir');
-  const result=updateWorkspace({target,source:incoming});assert.ok(result.conflicts.some(item=>item.path==='.agents/skills/debugging'));assert.deepEqual(fs.readdirSync(other),[]);
+  const result=updateWorkspace({target,source:incoming});assert.ok(result.conflicts.some(item=>item.path==='.agents/skills/diagnostics'));assert.deepEqual(fs.readdirSync(other),[]);
 }));
 
 test('exclusive lock blocks another update and dry run remains read-only',()=>fixture(({old,incoming,target})=>{

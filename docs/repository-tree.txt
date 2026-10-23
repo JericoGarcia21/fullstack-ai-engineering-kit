@@ -82,7 +82,7 @@ fullstack-ai-engineering-kit/
 │   │   │   ├── remotion.md
 │   │   │   └── video-qa.md
 │   │   └── SKILL.md
-│   ├── backend-api-engineering/
+│   ├── backend-data-engineering/
 │   │   ├── references/
 │   │   │   └── guide.md
 │   │   └── SKILL.md
@@ -90,15 +90,7 @@ fullstack-ai-engineering-kit/
 │   │   ├── references/
 │   │   │   └── guide.md
 │   │   └── SKILL.md
-│   ├── database-engineering/
-│   │   ├── references/
-│   │   │   └── guide.md
-│   │   └── SKILL.md
-│   ├── debugging/
-│   │   ├── references/
-│   │   │   └── guide.md
-│   │   └── SKILL.md
-│   ├── devops-deployment/
+│   ├── diagnostics/
 │   │   ├── references/
 │   │   │   └── guide.md
 │   │   └── SKILL.md
@@ -125,11 +117,7 @@ fullstack-ai-engineering-kit/
 │   │   ├── references/
 │   │   │   └── guide.md
 │   │   └── SKILL.md
-│   ├── performance-optimization/
-│   │   ├── references/
-│   │   │   └── guide.md
-│   │   └── SKILL.md
-│   ├── project-discovery/
+│   ├── product-definition/
 │   │   ├── references/
 │   │   │   └── guide.md
 │   │   └── SKILL.md
@@ -137,17 +125,14 @@ fullstack-ai-engineering-kit/
 │   │   ├── references/
 │   │   │   └── guide.md
 │   │   └── SKILL.md
-│   ├── release-readiness/
-│   │   ├── references/
-│   │   │   └── guide.md
-│   │   └── SKILL.md
-│   ├── requirements-engineering/
+│   ├── release-operations/
 │   │   ├── references/
 │   │   │   └── guide.md
 │   │   └── SKILL.md
 │   ├── security-engineering/
 │   │   ├── references/
-│   │   │   └── guide.md
+│   │   │   ├── guide.md
+│   │   │   └── http-security-headers.md
 │   │   └── SKILL.md
 │   └── system-architecture/
 │       ├── references/

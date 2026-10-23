@@ -28,12 +28,12 @@ for(const [agent,entry] of [['codex','AGENTS.md'],['claude','CLAUDE.md'],['openc
   assert.throws(()=>initializeWorkspace({agent,target:root}),/already exists/);
 }));
 test('portable copies reference bundle without inventing native integration',()=>temporary(root=>{
-  initializeWorkspace({agent:'portable',target:root});assert.deepEqual(fs.readdirSync(root),['.engineering-kit']);assert.ok(fs.existsSync(path.join(root,'.engineering-kit','skills','project-discovery','SKILL.md')));
+  initializeWorkspace({agent:'portable',target:root});assert.deepEqual(fs.readdirSync(root),['.engineering-kit']);assert.ok(fs.existsSync(path.join(root,'.engineering-kit','skills','product-definition','SKILL.md')));
 }));
 test('skill conflicts are rejected before bundle or instructions are written',()=>temporary(root=>{
-  const conflict=path.join(root,'.agents','skills','release-readiness');fs.mkdirSync(conflict,{recursive:true});
+  const conflict=path.join(root,'.agents','skills','release-operations');fs.mkdirSync(conflict,{recursive:true});
   assert.throws(()=>initializeWorkspace({agent:'codex',target:root}),/already exists/);
-  assert.ok(!fs.existsSync(path.join(root,'.engineering-kit')));assert.ok(!fs.existsSync(path.join(root,'AGENTS.md')));assert.deepEqual(fs.readdirSync(path.dirname(conflict)),['release-readiness']);
+  assert.ok(!fs.existsSync(path.join(root,'.engineering-kit')));assert.ok(!fs.existsSync(path.join(root,'AGENTS.md')));assert.deepEqual(fs.readdirSync(path.dirname(conflict)),['release-operations']);
 }));
 test('instruction conflicts are rejected before copying',()=>temporary(root=>{
   fs.writeFileSync(path.join(root,'AGENTS.md'),'<!-- fullstack-ai-engineering-kit:begin -->');

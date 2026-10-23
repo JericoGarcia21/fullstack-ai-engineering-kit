@@ -3,7 +3,7 @@
 Copy the following into your coding assistant; attach the toolkit or make it accessible. Replace the context fields you know and let discovery resolve material gaps.
 
 ```text
-Use fullstack-ai-engineering-kit to plan this project before implementing it.
+Use fullstack-ai-engineering-kit and the product-definition skill to plan this project before implementing it.
 Product/problem: [describe the actual problem and current workaround]
 Users and primary workflow: [who does what]
 Existing repository or stack: [existing system or new project]

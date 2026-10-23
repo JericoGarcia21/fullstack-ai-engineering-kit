@@ -24,5 +24,5 @@ test('relative, reference, fragment and code links resolve correctly',()=>{
 test('heading slugs retain inline code names',()=>assert.ok(anchors('# Use `config` now').has('use-config-now')));
 test('empty repository detects missing skills and docs',()=>{
   const root=fs.mkdtempSync(path.join(os.tmpdir(),'kit-empty-'));
-  try {const r=validate(root);assert.ok(r.errors.some(e=>e==='missing skill project-discovery'));assert.ok(r.errors.some(e=>e==='missing required document README.md'));}finally{fs.rmSync(root,{recursive:true,force:true});}
+  try {const r=validate(root);assert.ok(r.errors.some(e=>e==='missing skill product-definition'));assert.ok(r.errors.some(e=>e==='missing required document README.md'));}finally{fs.rmSync(root,{recursive:true,force:true});}
 });

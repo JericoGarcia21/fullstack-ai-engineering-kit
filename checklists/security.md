@@ -12,6 +12,7 @@ Use PASS, FAIL, or NOT VERIFIED with evidence and owner for each applicable item
 | Injection/XSS | Parameterized queries; context-safe output; HTML sanitization when needed | NOT VERIFIED |
 | Input/uploads | Server schemas, bounds, content validation, safe storage/names, malware controls by risk | NOT VERIFIED |
 | API abuse | Bounded pagination, timeouts, rate/resource limits, idempotency; appropriate CORS allowlist | NOT VERIFIED |
+| Browser headers | CSP based on actual resources; `frame-ancestors 'none'` and `X-Frame-Options: DENY` when framing is prohibited; HSTS scope, `nosniff`, referrer and permissions policies, proxy/CDN ownership, effective-response and browser verification | NOT VERIFIED |
 | Data/privacy | Minimized responses, log redaction, retention/deletion, transport/storage protection | NOT VERIFIED |
 | Secrets/config | Secret store or environment delivery, least privilege, production debug disabled | NOT VERIFIED |
 | Supply chain | Lockfiles, supported runtimes, dependency review and actionable advisory triage | NOT VERIFIED |

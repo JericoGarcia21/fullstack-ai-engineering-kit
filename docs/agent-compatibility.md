@@ -17,10 +17,10 @@ Replace codex with claude, cursor, or opencode. On Windows use a quoted absolute
 
 | Agent | Installer project path | Other officially documented path | Invocation / entry point |
 | --- | --- | --- | --- |
-| Codex | .agents/skills/name/SKILL.md | ~/.agents/skills/name/SKILL.md | CLI/IDE: $project-discovery or /skills; AGENTS.md |
-| Claude Code | .claude/skills/name/SKILL.md | ~/.claude/skills/name/SKILL.md | /project-discovery; CLAUDE.md |
+| Codex | .agents/skills/name/SKILL.md | ~/.agents/skills/name/SKILL.md | CLI/IDE: $product-definition or /skills; AGENTS.md |
+| Claude Code | .claude/skills/name/SKILL.md | ~/.claude/skills/name/SKILL.md | /product-definition; CLAUDE.md |
 | Cursor | .cursor/skills/name/SKILL.md | ~/.cursor/skills/name/SKILL.md; also .agents/skills | Ask for the skill; verify in Customize > Skills; .cursor/rules/*.mdc |
-| OpenCode | .opencode/skills/name/SKILL.md | ~/.config/opencode/skills/name/SKILL.md; also .agents/skills and .claude/skills | Ask to load project-discovery through the skill tool; AGENTS.md |
+| OpenCode | .opencode/skills/name/SKILL.md | ~/.config/opencode/skills/name/SKILL.md; also .agents/skills and .claude/skills | Ask to load product-definition through the skill tool; AGENTS.md |
 
 Do not install the same name in multiple paths unnecessarily. Codex can show duplicate names; discovery and precedence differ by host. If skills do not appear, inspect metadata, permissions, host version, and restart/reload as needed. Codex repository discovery follows directories toward the repository root. OpenCode uses worktree-aware upward discovery. Claude has its own project/nested discovery rules.
 
@@ -36,7 +36,7 @@ This repository includes AGENTS.md, CLAUDE.md, and a Cursor MDC rule for work on
 - Codex plugin publishing is separate from local skill installation. This kit has no plugin registry submission or managed organization deployment.
 - Buff, Free Buff, and other unverified hosts: use [portable master instructions](portable-master-instructions.md); do not invent configuration paths.
 
-After installation, ask the host to list/load project-discovery and identify its loaded file. Run [manual scenarios](../examples/agent-evaluation.md). Record actual outcomes before claiming tested compatibility.
+After installation, ask the host to list/load product-definition and identify its loaded file. Run [manual scenarios](../examples/agent-evaluation.md). Record actual outcomes before claiming tested compatibility.
 
 ## Codex links and repair
 

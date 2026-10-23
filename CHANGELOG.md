@@ -4,6 +4,10 @@ Versions below describe toolkit changes. Registry availability and GitHub releas
 
 ## Unreleased
 
+- Extend `security-engineering` with focused HTTP security-header guidance. Deny framing by default with CSP `frame-ancestors 'none'` plus `X-Frame-Options: DENY`, cover safe CSP rollout and related browser policies, and require effective-response verification during release assessment.
+- Consolidate 21 overlapping skills into 17 clearer entry points: `product-definition`, `backend-data-engineering`, `diagnostics`, and `release-operations` replace eight narrower predecessors while preserving their work as explicit modes.
+- Add outcome-based workflow recipes to the skill catalog and update installer tests, examples, compatibility guidance, and public invocation names.
+- Existing installations should preview the update before applying it. Unchanged retired skill files are removed and the merged skills are added; local edits to retired skills cause a conflict and must be reconciled manually. Project instruction files are preserved, so replace old explicit skill names there yourself.
 - Add adaptive-effort as default workflow guidance in repository, installed native entry points, and portable instructions. Scale effort to complexity and risk while preserving task completeness and required checks.
 - Existing installations: after updating, append the following to the project AGENTS.md, CLAUDE.md, or toolkit Cursor rule (portable users should reload the updated portable instructions). Updates preserve these project entry points.
 

@@ -2,7 +2,7 @@
 
 **An all-in-one engineering toolkit that helps AI coding assistants plan, build, test, review, and prepare software for release.**
 
-Give your coding assistant a reusable workflow instead of explaining your engineering standards in every conversation. The kit provides 21 focused Agent Skills, project templates, review checklists, and an npm-compatible installer.
+Give your coding assistant a reusable workflow instead of explaining your engineering standards in every conversation. The kit provides 17 focused Agent Skills, project templates, review checklists, and an npm-compatible installer.
 
 It runs through your existing coding assistant. Install it in a project folder, describe what you want to build, and ask the assistant to follow the workflow. You still choose the product, approve important decisions, and review the work.
 
@@ -21,7 +21,7 @@ This is portable guidance for agents that read the instructions, not a guarantee
 | During review | Investigate bugs, review security and code quality, run relevant tests, and measure performance changes |
 | Before release | Check actual evidence, production configuration, migrations, backups, recovery, monitoring, and deployment authorization |
 
-Use it for new projects or existing applications. A small bug fix needs a bounded fix and useful verification; a larger application needs more planning. You do not need to invoke all 21 skills for every task.
+Use it for new projects or existing applications. A small bug fix needs a bounded fix and useful verification; a larger application needs more planning. You do not need to invoke all 17 skills for every task.
 
 The toolkit provides guidance and files. Your assistant needs its own access to your code, terminal, test runners, and other development tools. Installing the kit does not automatically test, secure, or deploy your application.
 
@@ -62,7 +62,7 @@ On Windows PowerShell, use `npx.cmd` instead of `npx` if script execution policy
 
 ### 3. Open your coding assistant
 
-Open or reload the assistant in the same project folder. Confirm that it can find the `project-discovery` skill and read the installed workflow instructions.
+Open or reload the assistant in the same project folder. Confirm that it can find the `product-definition` skill and read the installed workflow instructions.
 
 For portable mode, provide `.engineering-kit/docs/portable-master-instructions.md` to your assistant. If it cannot read local files, paste the relevant instructions into the conversation.
 
@@ -83,7 +83,7 @@ security and QA needs, and a feature-based implementation plan.
 Present the necessary decisions before starting significant implementation.
 ```
 
-In Codex, you can explicitly mention `$project-discovery`. In Claude Code, invoke `/project-discovery`. For the other assistants, ask them to load the relevant skill and confirm which file they read.
+In Codex, you can explicitly mention `$product-definition`. In Claude Code, invoke `/product-definition`. For the other assistants, ask them to load the relevant skill and confirm which file they read.
 
 ## How to use it after planning
 
@@ -99,7 +99,7 @@ Report the acceptance criteria completed and the actual test results.
 ### Work on an existing application
 
 ```text
-Use debugging to investigate why cancelled bookings still appear as active.
+Use diagnostics in correctness mode to investigate why cancelled bookings still appear as active.
 Inspect the existing behavior, reproduce the problem, and make a bounded fix.
 Preserve unrelated functionality and report actual regression verification.
 ```
@@ -107,7 +107,7 @@ Preserve unrelated functionality and report actual regression verification.
 ### Review before release
 
 ```text
-Use code-audit, security-engineering, qa-testing, and release-readiness to
+Use code-audit, security-engineering, qa-testing, and release-operations in assess mode to
 assess this candidate release. Report findings and checks with evidence.
 Mark gates PASS, FAIL, or NOT VERIFIED. Explain unresolved risks and recovery.
 Do not deploy or modify live infrastructure.
@@ -119,12 +119,12 @@ Skill names describe the work you want. Request one skill or a few relevant skil
 
 Every mode creates `.engineering-kit/` with a self-contained reference copy of the toolkit, including its skills, templates, checklists, examples, documentation, and MIT license.
 
-Native modes also install 21 skill folders in the assistant's discovery directory and add a workflow entry point. For example, a Codex project receives:
+Native modes also install 17 skill folders in the assistant's discovery directory and add a workflow entry point. For example, a Codex project receives:
 
 ```text
 your-project/
 |-- .engineering-kit/          Reference toolkit and reusable documents
-|-- .agents/skills/            21 Codex-discoverable skill folders
+|-- .agents/skills/            17 Codex-discoverable skill folders
 |-- AGENTS.md                  Existing guidance plus the toolkit workflow block
 `-- ...                        Your application files
 ```
@@ -154,13 +154,13 @@ Update uses the running CLI package; run a reviewed newer CLI first or pass --so
 | --- | --- |
 | Default efficiency | adaptive-effort |
 | Developer persona | lazy-genius (optional) |
-| Planning | project-discovery, requirements-engineering, system-architecture |
+| Planning | product-definition, system-architecture |
 | Interface | frontend-design, frontend-engineering, accessibility-review |
-| Application and data | backend-api-engineering, database-engineering, fullstack-development |
-| Quality and review | security-engineering, code-audit, qa-testing, debugging, performance-optimization |
+| Application and data | backend-data-engineering, fullstack-development |
+| Quality and review | security-engineering, code-audit, qa-testing, diagnostics |
 | AI systems | ai-engineering |
 | Video tutorials | app-video-tutorials |
-| Delivery | devops-deployment, documentation, release-readiness |
+| Delivery | release-operations, documentation |
 
 See the [skill catalog](docs/skill-catalog.md) for each skill's purpose and instructions, and the [reference map](references/skill-sources.md) for the primary sources informing them. Skills include focused decision guides with failure cases, worked scenarios, completion evidence, and proposed behavioral evaluations.
 
@@ -212,7 +212,7 @@ npm run test:package
 
 The checks cover required files, skill metadata, local Markdown links, installer behavior, and offline npm package execution. These are toolkit checks; use your application's own test commands to verify product features.
 
-The latest recorded local results are 19 skills and 95 Markdown files validated with no errors, 48 regression tests passed, and package execution passed for all five installation modes. Actual discovery inside agent clients and remote GitHub CI remain unverified. See [validation results](docs/validation-results.md) for evidence and limits, and [CONTRIBUTING.md](CONTRIBUTING.md) to contribute.
+The latest recorded local results are maintained in [validation results](docs/validation-results.md). Actual discovery inside agent clients and remote GitHub CI remain unverified. Run the documented checks against the current revision rather than relying on older counts, and see [CONTRIBUTING.md](CONTRIBUTING.md) to contribute.
 
 ## Credits
 

@@ -124,6 +124,19 @@ No force option or automatic text merge is provided. Resolve a conflict by compa
 
 Project-level AGENTS.md, CLAUDE.md, Cursor rules, application files, and unrelated skills are left untouched by update. If a release changes the recommended project entry point, its release notes must explain the manual change. The update does not switch agents. Native copied skills remain copies; tracked Codex links continue pointing at the project-local bundle. Unexpected links, redirected parents, and directory/file collisions are rejected. User-added extra files in managed folders are preserved. Empty directories can remain after removals.
 
+### Migrating the consolidated skill names
+
+The current catalog replaces eight narrower skills with four merged entry points:
+
+| Previous names | Current name |
+| --- | --- |
+| `project-discovery`, `requirements-engineering` | `product-definition` |
+| `backend-api-engineering`, `database-engineering` | `backend-data-engineering` |
+| `debugging`, `performance-optimization` | `diagnostics` |
+| `devops-deployment`, `release-readiness` | `release-operations` |
+
+For a tracked installation, an update removes unchanged retired files and adds the merged skills. A local edit to a retired file conflicts with its upstream removal; preserve the intent and manually incorporate it into the applicable mode of the merged skill before previewing again. The updater deliberately does not rewrite project-level instructions, prompts, or automation, so update explicit invocations there yourself. Templates and checklists keep their task-oriented filenames and remain valid.
+
 Reload the coding agent after an update and verify the skills are available. File-placement tests do not establish discovery inside a running client.
 
 ## Migrate a previously installed project

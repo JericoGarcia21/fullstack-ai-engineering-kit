@@ -1,5 +1,22 @@
 # Validation results
 
+## Skill consolidation to 17 entry points
+
+Verified locally on Windows PowerShell, 2026-10-23. Earlier sections below are historical records from the revisions they describe.
+
+| Command | Actual result |
+| --- | --- |
+| `node scripts/tree.mjs --write` | Exit 0; repository tree regenerated for the 17-skill layout |
+| `node scripts/validate.mjs` | Exit 0; 17 skills, 92 Markdown files, 0 errors |
+| `npm test` | Exit 0; 48 tests passed, 0 failed, 0 skipped |
+| `npm run test:package` | Exit 0; npm pack, offline tarball installation, executable resolution, and init/status/check/preview/update in all 5 workspace modes passed |
+
+The canonical catalog now uses `product-definition`, `backend-data-engineering`, `diagnostics`, and `release-operations` in place of eight narrower predecessors. Installer markers, update fixtures, CLI guidance, compatibility documentation, source maps, and the generated repository tree use the new names. Update documentation explains how unchanged retired skills are removed and locally modified retired skills become explicit conflicts for manual reconciliation.
+
+`security-engineering` now includes an HTTP security-header reference with a deny-by-default framing policy, CSP rollout and related browser controls, configuration ownership, and effective-response verification. Installer and offline package tests assert that this additional reference is present in the toolkit bundle and all four native skill layouts.
+
+These checks verify repository structure, links, package contents, and installer/update behavior. They do not establish automatic skill discovery in a running agent client, behavioral compliance with the merged instructions, product security, production deployment safety, or macOS/Linux runtime behavior.
+
 Generation environment: Windows PowerShell, 2026-10-18. Commands ran from the toolkit root.
 
 | Command | Actual result |

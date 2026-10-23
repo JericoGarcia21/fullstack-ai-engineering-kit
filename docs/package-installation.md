@@ -66,13 +66,13 @@ Alternatively, from the toolkit checkout run `npm pack`, then install the result
 | opencode | .opencode/skills/ | Appends a labeled block to AGENTS.md |
 | portable | No native discovery assumed | Provide .engineering-kit/docs/portable-master-instructions.md manually |
 
-All modes copy a self-contained toolkit into .engineering-kit/, including templates, checklists, references, worked examples, all skills, and the MIT license. Native modes expose 20 complete skill folders in the host-specific location. Codex links them to the project bundle; other native modes copy them. New bundles include installation.json with version, source identity, agent layout, and tracked file hashes. The entry point directs the agent to project planning and evidence requirements without replacing your existing instructions or prescribing the toolkit's test commands for your application.
+All modes copy a self-contained toolkit into .engineering-kit/, including templates, checklists, references, worked examples, all skills, and the MIT license. Native modes expose 17 complete skill folders in the host-specific location. Codex links them to the project bundle; other native modes copy them. New bundles include installation.json with version, source identity, agent layout, and tracked file hashes. The entry point directs the agent to project planning and evidence requirements without replacing your existing instructions or prescribing the toolkit's test commands for your application.
 
 Existing bundles, skills, or conflicting rules cause an error before normal writes begin. init is not an upgrade command. Use status, check-updates, and the explicit update command described in [updates and migration](updating.md); there is no force overwrite or background upgrade. An unexpected filesystem failure can leave a partial installation; inspect the reported paths before retrying. Symlink/junction destinations are rejected. Avoid concurrent installers in the same project.
 
 Review the generated files and commit them if the team should share the instructions. No project package.json, dependency lockfile, or global agent configuration is modified by init. No install/postinstall lifecycle hook initializes workspaces automatically.
 
-Reload your agent, verify project-discovery is available, and ask:
+Reload your agent, verify product-definition is available, and ask:
 
 ```text
 Follow .engineering-kit/templates/project-initialization.md to plan my project.
