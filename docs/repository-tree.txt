@@ -74,15 +74,11 @@ fullstack-ai-engineering-kit/
 │   │   │   ├── retrieval.md
 │   │   │   └── training.md
 │   │   └── SKILL.md
-│   ├── app-video-tutorials/
-│   │   ├── references/
-│   │   │   ├── audio-captions.md
-│   │   │   ├── capture.md
-│   │   │   ├── guide.md
-│   │   │   ├── remotion.md
-│   │   │   └── video-qa.md
-│   │   └── SKILL.md
 │   ├── backend-data-engineering/
+│   │   ├── references/
+│   │   │   └── guide.md
+│   │   └── SKILL.md
+│   ├── cinematic-product-video/
 │   │   ├── references/
 │   │   │   └── guide.md
 │   │   └── SKILL.md
@@ -98,14 +94,11 @@ fullstack-ai-engineering-kit/
 │   │   ├── references/
 │   │   │   └── guide.md
 │   │   └── SKILL.md
-│   ├── frontend-design/
+│   ├── frontend-development/
 │   │   ├── references/
+│   │   │   ├── engineering-guide.md
 │   │   │   ├── guide.md
 │   │   │   └── visual-direction.md
-│   │   └── SKILL.md
-│   ├── frontend-engineering/
-│   │   ├── references/
-│   │   │   └── guide.md
 │   │   └── SKILL.md
 │   ├── fullstack-development/
 │   │   ├── references/
@@ -143,8 +136,8 @@ fullstack-ai-engineering-kit/
     ├── accessibility-report.md
     ├── ai-feature-plan.md
     ├── api-contract.md
-    ├── app-video-plan.md
     ├── architecture.md
+    ├── cinematic-video-plan.md
     ├── code-audit-report.md
     ├── database-design.md
     ├── debugging-report.md

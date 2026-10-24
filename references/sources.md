@@ -36,9 +36,9 @@ The public overview pages establish reference areas, not a complete standard-by-
 
 The [skill reference map](skill-sources.md) records the engineering and AI sources reviewed on 2026-10-19. This supplements the earlier integration review; it does not imply a newer host compatibility test.
 
-## App tutorial video sources
+## Cinematic product video sources
 
-Official Remotion agent-skill, animation, sequence, render/CLI, caption, and license documentation, Playwright video documentation, and W3C accessible-media guidance were reviewed on 2026-10-19. See the [video decision guide](../skills/app-video-tutorials/references/guide.md) and [reference map](skill-sources.md). No Remotion runtime, browser recording, speech generation, media rendering, or playback integration was executed. Optional upstream skills are linked, not bundled or installed.
+Official Agent Skills specification, HyperFrames repository, Remotion documentation (including animation and render CLI), Remotion skills repository, Motion, Three.js, and FFmpeg documentation were reviewed on 2026-10-24. See the [self-contained skill source list](../skills/cinematic-product-video/SKILL.md#10-official-technical-references-research-basis-not-required-to-install-other-skills) and [reference map](skill-sources.md). The supplied HyperFrames product-launch skill URL returned 404 and is explicitly labeled unavailable. No renderer, upstream skill, speech service, media render, or playback integration was installed or executed. Installed-version CLI checks remain part of each actual production task.
 
 ## Installation updates
 

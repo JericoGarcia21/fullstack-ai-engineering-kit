@@ -1,4 +1,4 @@
-# frontend-design: decision guide
+# frontend-development design: decision guide
 
 ## When to read
 

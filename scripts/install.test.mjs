@@ -12,8 +12,9 @@ for(const agent of Object.keys(destinations))test(`${agent}: dry run, complete p
     install({agent,target,write:true});
     for(const name of requiredSkills){const dir=path.join(target,destinations[agent],name);assert.ok(fs.existsSync(path.join(dir,'references','guide.md')));assert.deepEqual(localLinkErrors(path.join(dir,'SKILL.md'),target),[]);}
     for(const file of ['guide.md','retrieval.md','agents.md','evaluation.md','training.md']) { const installed=path.join(target,destinations[agent],'ai-engineering','references',file); assert.ok(fs.existsSync(installed)); assert.deepEqual(localLinkErrors(installed,target),[]); }
-    for(const file of ['guide.md','capture.md','remotion.md','audio-captions.md','video-qa.md']) { const installed=path.join(target,destinations[agent],'app-video-tutorials','references',file); assert.ok(fs.existsSync(installed)); assert.deepEqual(localLinkErrors(installed,target),[]); }
+    for(const file of ['guide.md']) { const installed=path.join(target,destinations[agent],'cinematic-product-video','references',file); assert.ok(fs.existsSync(installed)); assert.deepEqual(localLinkErrors(installed,target),[]); }
     { const installed=path.join(target,destinations[agent],'security-engineering','references','http-security-headers.md'); assert.ok(fs.existsSync(installed)); assert.deepEqual(localLinkErrors(installed,target),[]); }
+    assert.ok(!fs.existsSync(path.join(target,destinations[agent],'app-video-tutorials')));
     const marker=path.join(target,destinations[agent],'product-definition','SKILL.md');const before=fs.readFileSync(marker,'utf8');
     assert.throws(()=>install({agent,target,write:true}),/already exists/);assert.equal(fs.readFileSync(marker,'utf8'),before);
   }finally{fs.rmSync(target,{recursive:true,force:true});}

@@ -155,20 +155,20 @@ Update uses the running CLI package; run a reviewed newer CLI first or pass --so
 | Default efficiency | adaptive-effort |
 | Developer persona | lazy-genius (optional) |
 | Planning | product-definition, system-architecture |
-| Interface | frontend-design, frontend-engineering, accessibility-review |
+| Interface | frontend-development, accessibility-review |
 | Application and data | backend-data-engineering, fullstack-development |
 | Quality and review | security-engineering, code-audit, qa-testing, diagnostics |
 | AI systems | ai-engineering |
-| Video tutorials | app-video-tutorials |
+| Product video | cinematic-product-video |
 | Delivery | release-operations, documentation |
 
 See the [skill catalog](docs/skill-catalog.md) for each skill's purpose and instructions, and the [reference map](references/skill-sources.md) for the primary sources informing them. Skills include focused decision guides with failure cases, worked scenarios, completion evidence, and proposed behavioral evaluations.
 
 Use ai-engineering for model APIs, document retrieval, tool-using agents, evaluation, and model-training lifecycle work. Read only the references relevant to the project; ordinary API integration does not require a training pipeline.
 
-Use app-video-tutorials to create accurate app walkthroughs with real capture, animated highlights, captions, optional narration, and export review. Remotion is preferred for programmable animation; tools and upstream skills are not installed automatically. Start with the [video plan](templates/app-video-plan.md).
+Use cinematic-product-video for product ads, SaaS launches, demos, branded reels, motion graphics, and footage recuts. It covers creative direction, verified claims, frame timing, assets, sound, rendering, and QA in one standalone skill. Choose Remotion or HyperFrames from the available tooling; no runtime or upstream skill is installed automatically. The optional [video plan](templates/cinematic-video-plan.md) helps organize project evidence.
 
-Example request: "Use app-video-tutorials to create a 60-second captioned tutorial of the booking workflow using demo data. Use Remotion for animated callouts and deliver the video plus editable source."
+Example request: "Use cinematic-product-video to create a 20-second vertical promo for our booking app using the supplied logo and verified screenshots. Use Remotion and deliver the video plus editable source."
 
 ## Other installation options
 

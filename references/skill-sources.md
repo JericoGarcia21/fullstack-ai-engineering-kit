@@ -1,13 +1,12 @@
 # Skill reference map
 
-Public sources reviewed on 2026-10-19. This map supplements the host/integration review in [sources](sources.md); it does not update those older verification dates. Guidance is original and adapted proportionally. Sources are standards, official documentation, or original specialist guidance, not interchangeable certifications.
+Public sources reviewed on 2026-10-19 unless a row records a later review date. This map supplements the host/integration review in [sources](sources.md); it does not update those older verification dates. Guidance is original and adapted proportionally. Sources are standards, official documentation, or original specialist guidance, not interchangeable certifications.
 
 | Skill | Primary references |
 | --- | --- |
 | [product-definition](../skills/product-definition/SKILL.md) | [NN/g discovery](https://www.nngroup.com/articles/discovery-phase/); [NASA requirements validation](https://swehb.nasa.gov/spaces/7150/pages/16449673/SWE-055%2B-%2BRequirements%2BValidation) |
 | [system-architecture](../skills/system-architecture/SKILL.md) | [SEI ATAM collection](https://www.sei.cmu.edu/library/architecture-tradeoff-analysis-method-collection/) |
-| [frontend-design](../skills/frontend-design/SKILL.md) | [GOV.UK patterns](https://design-system.service.gov.uk/patterns/); [NN/g discovery](https://www.nngroup.com/articles/discovery-phase/) |
-| [frontend-engineering](../skills/frontend-engineering/SKILL.md) | [MDN core curriculum](https://developer.mozilla.org/en-US/curriculum/core/); [GOV.UK patterns](https://design-system.service.gov.uk/patterns/) |
+| [frontend-development](../skills/frontend-development/SKILL.md) | [MDN core curriculum](https://developer.mozilla.org/en-US/curriculum/core/); [GOV.UK patterns](https://design-system.service.gov.uk/patterns/); [NN/g discovery](https://www.nngroup.com/articles/discovery-phase/) |
 | [backend-data-engineering](../skills/backend-data-engineering/SKILL.md) | [OpenAPI specification](https://spec.openapis.org/oas/); [OWASP ASVS](https://owasp.org/projects/asvs); [PostgreSQL transaction isolation](https://www.postgresql.org/docs/current/transaction-iso.html) |
 | [fullstack-development](../skills/fullstack-development/SKILL.md) | [NIST SSDF](https://csrc.nist.gov/projects/ssdf); [DORA continuous delivery](https://dora.dev/capabilities/continuous-delivery/) |
 | [security-engineering](../skills/security-engineering/SKILL.md) | [OWASP ASVS](https://owasp.org/projects/asvs); [NIST SSDF](https://csrc.nist.gov/projects/ssdf); [W3C CSP](https://www.w3.org/TR/CSP/); [OWASP Secure Headers](https://secure-headers-project.owasp.org/) |
@@ -18,7 +17,7 @@ Public sources reviewed on 2026-10-19. This map supplements the host/integration
 | [documentation](../skills/documentation/SKILL.md) | [Diataxis](https://diataxis.fr/); [Google technical writing](https://developers.google.com/tech-writing/overview) |
 | [release-operations](../skills/release-operations/SKILL.md) | [DORA continuous delivery](https://dora.dev/capabilities/continuous-delivery/); [Google SRE canarying releases](https://sre.google/workbook/canarying-releases/); [NIST SSDF](https://csrc.nist.gov/projects/ssdf) |
 | [ai-engineering](../skills/ai-engineering/SKILL.md) | [Anthropic building effective agents](https://www.anthropic.com/engineering/building-effective-agents); [NIST Generative AI Profile](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf); [OWASP GenAI Security Project](https://genai.owasp.org/); [Google Cloud MLOps](https://docs.cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning) |
-| [app-video-tutorials](../skills/app-video-tutorials/SKILL.md) | [Remotion rendering](https://www.remotion.dev/docs/render); [animation](https://www.remotion.dev/docs/animating-properties); [agent skills](https://www.remotion.dev/docs/ai/skills); [license](https://www.remotion.dev/docs/license); [Playwright videos](https://playwright.dev/docs/videos); [W3C accessible media](https://www.w3.org/WAI/media/av/) |
+| [cinematic-product-video](../skills/cinematic-product-video/SKILL.md) | [Remotion docs](https://www.remotion.dev/docs) and [render CLI](https://www.remotion.dev/docs/cli/render); [HyperFrames](https://github.com/heygen-com/hyperframes); [Motion](https://motion.dev/docs); [Three.js](https://threejs.org/docs/); [FFmpeg](https://ffmpeg.org/documentation.html); [Agent Skills specification](https://agentskills.io/specification). Reviewed 2026-10-24; supplied HyperFrames product-launch path returned 404. |
 
 ## Adaptive effort
 

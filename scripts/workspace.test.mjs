@@ -60,10 +60,10 @@ test('Codex repairs a preserved portable bundle using complete linked skill fold
   initializeWorkspace({agent:'portable',target:root});
   const original='# Project rules\nKeep existing behavior.\n';
   fs.writeFileSync(path.join(root,'AGENTS.md'),original);
-  const manifest=path.join(root,'.engineering-kit','skills','frontend-design','SKILL.md');
+  const manifest=path.join(root,'.engineering-kit','skills','frontend-development','SKILL.md');
   const before=fs.readFileSync(manifest,'utf8');
   initializeWorkspace({agent:'codex',target:root});
-  const linked=path.join(root,'.agents','skills','frontend-design');
+  const linked=path.join(root,'.agents','skills','frontend-development');
   assert.ok(fs.lstatSync(linked).isSymbolicLink());
   assert.equal(fs.realpathSync(linked),fs.realpathSync(path.dirname(manifest)));
   assert.equal(fs.readFileSync(path.join(linked,'SKILL.md'),'utf8'),before);

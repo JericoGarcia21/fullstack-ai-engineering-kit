@@ -21,9 +21,9 @@ Use [security controls](../checklists/security.md), [QA strategy](../templates/q
 
 Use [ai-engineering](../skills/ai-engineering/SKILL.md) when the feature depends on model outputs, document retrieval, tool-using agents, or trained models. Compare a simpler baseline, define measurable evaluation targets, and map data/provider, retrieval, and tool authorization boundaries before implementation. Use [the AI feature plan](../templates/ai-feature-plan.md) for material AI work. Include unsupported answers, injection, permission boundaries, provider failures, cost limits, and rollback in verification. Skip AI-specific artifacts when the product has no AI behavior.
 
-## App tutorial videos when requested
+## Product videos when requested
 
-Use [app-video-tutorials](../skills/app-video-tutorials/SKILL.md) for animated walkthroughs and onboarding videos. Inspect the actual workflow, use safe demo data, and plan a script/storyboard with [the video plan](../templates/app-video-plan.md). Prefer real capture plus focused animation; Remotion is the preferred programmable tool when available. Verify the exported video for accuracy, readability, caption timing, and audio. Do not impose video artifacts on ordinary app changes. Publishing and live app side effects require appropriate authorization.
+Use [cinematic-product-video](../skills/cinematic-product-video/SKILL.md) for product ads, launches, demos, branded reels, motion graphics, and footage recuts. The skill contains the complete workflow without requiring other agent skills. Verify product claims and asset rights, choose one available renderer (Remotion or HyperFrames), and plan frame timing, visual direction, and sound. The [video plan](../templates/cinematic-video-plan.md) is optional. Inspect actual product behavior and use safe demo data for captures; label concept art. Verify the rendered artifact, typography, captions, encoding, and audio before claiming final QA. Report source-only delivery honestly when rendering is unavailable. Do not impose video artifacts on ordinary app changes. Publishing and live app side effects require appropriate authorization.
 
 ## Before deployment
 

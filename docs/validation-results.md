@@ -117,3 +117,9 @@ The authenticated account was npm_jerico123. The explicit public-registry publis
 ### Maintainer deferred npm publication
 
 On 2026-10-19 the maintainer explicitly deferred npm publication for a future session. Registry publication was not successful; account authentication/security-key setup remained unresolved. README and installation guidance were revised to use GitHub/local distribution and label npm examples as future commands. No public registry installation was verified. The preparation artifact and failed-attempt record above remain historical evidence, not a released version. Future publication must rebuild/review the current artifact and recheck release gates. Existing project installations were not changed, and no GitHub push or release was performed.
+
+## Cinematic product video replacement (2026-10-24)
+
+Replaced the historical app-video-tutorials skill with cinematic-product-video. The previous video-reference checks above describe the earlier revision. The replacement keeps the complete production instructions in SKILL.md and an optional local evaluation guide; no other agent skill is required. Installer/package checks now target the replacement skill, guide, and cinematic video plan. Official source review and the unavailable HyperFrames product-launch link are recorded in the skill. No actual video render or behavioral production evaluation was performed. Existing installed skill copies were not refreshed.
+
+Local checks for this replacement: `node scripts/validate.mjs` passed with 16 skills, 87 Markdown files, and 0 errors; `npm.cmd test` passed all 48 tests; `npm.cmd run test:package` passed npm pack, offline tarball installation, executable resolution, and init/status/check/preview/update in all 5 workspace modes. `git diff --check` reported no whitespace errors. These checks validate toolkit structure, packaging, and installation behavior, not creative output or renderer compatibility.

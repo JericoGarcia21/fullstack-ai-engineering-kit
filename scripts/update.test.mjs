@@ -135,16 +135,16 @@ test('legacy bundle gains optional specialist skills and keeps copied Codex layo
   for(const skill of fs.readdirSync(path.join(old,'skills'))) {
     const link=path.join(target,'.agents','skills',skill);
     if(process.platform==='win32')fs.rmdirSync(link);else fs.unlinkSync(link);
-    if(!['ai-engineering','app-video-tutorials'].includes(skill))fs.cpSync(path.join(old,'skills',skill),link,{recursive:true});
+    if(!['ai-engineering','cinematic-product-video'].includes(skill))fs.cpSync(path.join(old,'skills',skill),link,{recursive:true});
   }
-  for(const skill of ['ai-engineering','app-video-tutorials']) {
+  for(const skill of ['ai-engineering','cinematic-product-video']) {
     fs.rmSync(path.join(old,'skills',skill),{recursive:true});
     fs.rmSync(path.join(target,'.engineering-kit','skills',skill),{recursive:true});
   }
   const result=updateWorkspace({target,source:incoming,baseline:old,agent:'codex'});assert.equal(result.conflicts.length,0);
   assert.equal(readManifest(target).nativeMode,'copy');
   assert.ok(fs.existsSync(path.join(target,'.agents','skills','ai-engineering','SKILL.md')));
-  assert.ok(!fs.lstatSync(path.join(target,'.agents','skills','app-video-tutorials')).isSymbolicLink());
+  assert.ok(!fs.lstatSync(path.join(target,'.agents','skills','cinematic-product-video')).isSymbolicLink());
 }));
 
 test('malicious manifest paths cannot claim root instructions or escape the project',()=>fixture(({old,incoming,target})=>{

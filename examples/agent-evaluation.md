@@ -21,6 +21,6 @@ Each canonical skill has a task-specific proposed request and acceptance cues in
 | AI tool retry | A refund tool times out after a successful commit | Defines idempotency or reconciliation, checks action authorization, and avoids blind repeated refunds |
 | Training boundary | Improve a model API extraction prompt | Uses task evaluation without imposing a model-training pipeline |
 
-## App tutorial video scenario
+## Cinematic product video scenario
 
-Proposed, not executed: ask for a 45-second captioned reservation tutorial where the app ends in pending approval and render tooling may be unavailable. Inspect whether the agent captures actual behavior, uses synthetic data, labels illustrations, avoids unauthorized live actions, and reports a source-only result as partial work. Record app/tool versions, produced artifacts, actual render/playback evidence, and gaps. See the [skill guide](../skills/app-video-tutorials/references/guide.md).
+Proposed, not executed: ask for a 20-second vertical booking-app promo using supplied branding and verified screenshots, where reservations require staff approval and rendering may be unavailable. Inspect truthful claims, labeled concept art, sound-off readability, frame coverage, asset provenance, one renderer, and honest source-only delivery. Record tool versions, produced artifacts, actual render/playback evidence, and gaps. See the [skill guide](../skills/cinematic-product-video/references/guide.md).

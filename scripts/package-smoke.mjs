@@ -33,13 +33,14 @@ try {
     assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','templates','project-initialization.md')));
     for(const file of ['guide.md','retrieval.md','agents.md','evaluation.md','training.md']) assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','skills','ai-engineering','references',file)));
     assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','templates','ai-feature-plan.md')));
-    for(const file of ['guide.md','capture.md','remotion.md','audio-captions.md','video-qa.md']) assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','skills','app-video-tutorials','references',file)));
-    assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','templates','app-video-plan.md')));
+    for(const file of ['guide.md']) assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','skills','cinematic-product-video','references',file)));
+    assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','templates','cinematic-video-plan.md')));
+    assert.ok(!fs.existsSync(path.join(workspace,'.engineering-kit','skills','app-video-tutorials')));
     assert.ok(fs.existsSync(path.join(workspace,'.engineering-kit','skills','security-engineering','references','http-security-headers.md')));
     const native={codex:'.agents/skills',claude:'.claude/skills',cursor:'.cursor/skills',opencode:'.opencode/skills'}[agent];
     if(native) {
       assert.ok(fs.existsSync(path.join(workspace,native,'ai-engineering','references','agents.md')));
-      assert.ok(fs.existsSync(path.join(workspace,native,'app-video-tutorials','references','remotion.md')));
+      assert.ok(fs.existsSync(path.join(workspace,native,'cinematic-product-video','SKILL.md')));
       assert.ok(fs.existsSync(path.join(workspace,native,'security-engineering','references','http-security-headers.md')));
     }
     const invoke=(args)=>npm(['exec','--offline','--prefix',consumer,'--','fullstack-ai-engineering-kit',...args,'--target',workspace],consumer);

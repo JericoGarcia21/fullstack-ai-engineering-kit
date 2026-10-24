@@ -21,7 +21,7 @@ Separate MVP, optional, future, and excluded scope. Recommend a proportionate st
 with alternatives, data/permission boundaries, failure behavior, hosting limits,
 and feature-based slices. Present a readiness summary with assumptions, blockers,
 security/QA needs, and decisions requiring approval.
-For a user-facing interface, use frontend-design to establish a specific visual
+For a user-facing interface, use frontend-development to establish a specific visual
 direction grounded in real content and inspected references when available.
 Include a design brief and representative screen in the plan; avoid defaulting
 to a generic landing page or dashboard composition. Label unverified references.

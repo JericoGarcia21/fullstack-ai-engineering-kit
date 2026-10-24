@@ -9,7 +9,7 @@ Describe the intended brand character and how it changes composition, typography
 | Reference URL or local asset | Inspected date and screen | Observed principle | Application to this product |
 | --- | --- | --- | --- |
 
-Use relevant inspected references when available; label proposed choices and unavailable sources honestly. Record asset/font sources and licensing where used. See the frontend-design skill's reference research guide for the workflow.
+Use relevant inspected references when available; label proposed choices and unavailable sources honestly. Record asset/font sources and licensing where used. See the frontend-development skill's reference research guide for the workflow.
 
 ## States and visual verification
 
